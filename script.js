@@ -110,6 +110,6 @@ const questions = [
 
     // definire funzione che visualizza domanda random con risposte random
     // definire funzione che riconosce la risposta esatta, assegna il punteggio e lo memorizza in una variabile
-    // funzione che mostra il punteggio
+    // funzione che mostra il punteggio.
 
   
