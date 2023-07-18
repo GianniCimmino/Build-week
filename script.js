@@ -177,9 +177,9 @@ const questions = [
     
     let array= []
     let correctText= document.querySelector('label#a')
-    let incorrectText= document.querySelector('label#b')
-    let incorrectText= document.querySelector('label#b')
-    let incorrectText= document.querySelector('label#b')
+    let incorrectTextB= document.querySelector('label#b')
+    let incorrectTextC= document.querySelector('label#b')
+    let incorrectTextD= document.querySelector('label#b')
 
 
 
@@ -190,8 +190,11 @@ const questions = [
     }
     for (let i = 0; i < array.length; i++) {
        let stampa = array[i];
-queryTitle.innerText= stampa.question
-correctText.innerText= stampa.correct_answer
+      queryTitle.innerText= stampa.question
+      correctText.innerText= stampa.correct_answer
+      correctText.innerTextB= stampa.incorrect_answer[0]
+
+
 
   }
   }
