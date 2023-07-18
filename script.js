@@ -144,55 +144,58 @@ const questions = [
 
 // const button= document.querySelector('button')
 
-function queryRandom() {
+// function queryRandom() {
 
-          const queryText= document.querySelector('#query')
+//           // const queryText= document.querySelector('#query')
   
-    let queryRandom=[]
-    let allAswers=[]
-    let printElement
-    for (const question of questions ) {
-      printElement= queryRandom.shift()
-
-      queryRandom.push(question.question)
-      queryText.innerText= queryRandom
-
-
-    } console.log(queryRandom)
-  
-    
-    
-    
-  }
-
-
-    
-    
-    
-  //   function queryRandom(questions) {
-  //     const queryText= document.querySelector('#query')
+//     let queryRandom=[]
+//     let allAswers=[]
+//     let printElement
+//     for (const question of questions ) {
+//       printElement= queryRandom.shift()
       
-  //     let queryRandom=[]
-  //     let allAswers=[]
-  //     for (const question of questions) {
-  //       queryRandom.push(question.question)
-  //     // queryText.innerHTML = queryRandom[Math.floor( Math.random()* queryRandom.length)]
-  //   }    
-  //   while(n<queryRandom.length)   {
-  //     const random= Math.floor( Math.random()* queryRandom.length)
-  //     const printEl= queryRandom.splice(random, 1) [0]
-  //     queryText.innerHTML= printEl
-  //   }     
-    
-    
-    
-    
-    
-    
-    
-  // }
+//       queryRandom.push(question.question)
+//       allAswers.push((question.correct_answer), (question.incorrect_answers))
+//       //queryText.innerText= 
+//       return{
+//         queryRandom,
+//         allAswers
   
+  
+//       }
 
+//     }       
+
+    
+  
+    
+    
+    
+//   }
+
+// queryRandom()
+    
+    let array= []
+    let correctText= document.querySelector('label#a')
+    let incorrectText= document.querySelector('label#b')
+    let incorrectText= document.querySelector('label#b')
+    let incorrectText= document.querySelector('label#b')
+
+
+
+  function query(){
+    let queryTitle= document.querySelector('#query')
+    for (const question of questions){
+      array.push({question: question.question,correct_answer: question.correct_answer, incorrect_answers: question.incorrect_answers})
+    }
+    for (let i = 0; i < array.length; i++) {
+       let stampa = array[i];
+queryTitle.innerText= stampa.question
+correctText.innerText= stampa.correct_answer
+
+  }
+  }
+query()
 
 
 
