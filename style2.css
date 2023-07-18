@@ -45,3 +45,13 @@ header, img {
     bottom: 5px;
     right: 25px;
 }
+
+footer {
+    color: white;
+    position: absolute;
+    bottom: 50px;
+}
+
+label {
+    color: white;
+}
