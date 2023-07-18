@@ -196,10 +196,10 @@ const questions = [
 
     
     let array= []
-    let correctText= document.querySelector('label#a')
-    let incorrectTextB= document.querySelector('label#b')
-    let incorrectTextC= document.querySelector('label#b')
-    let incorrectTextD= document.querySelector('label#b')
+    let correctText= document.querySelector('label[for=a]')
+    let incorrectTextB= document.querySelector('label[for=b]')
+    let incorrectTextC= document.querySelector('label[for=c]')
+    let incorrectTextD= document.querySelector('label[for=d]')
 
 
 
