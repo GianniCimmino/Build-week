@@ -112,24 +112,64 @@ const questions = [
 // definire funzione che riconosce la risposta esatta, assegna il punteggio e lo memorizza in una variabile
 // funzione che mostra il punteggio.
 
+
+
+
+
+
+
+
 // -------------FUNZIONE CHE RESTITUISCE DOMANDA RANDOM-------------
-function queryRandom() {
-  let queryRandom=[]
-  let allAswers=[]
-  let popped=''
-  for (const question of questions ) {
-    queryRandom=[question.question]
-    popped= queryRandom.pop()
-    // allAswers.push(question.correct_answer + question.incorrect_answers)
-    console.log(popped)
-    // }      return queryRandom[Math.floor( Math.random()* queryRandom.length)]
-  }     
-  return queryRandom
+// function queryRandom() {
+//   let queryRandom=[]
+//   let allAswers=[]
+//   let popped=''
+//   for (const question of questions ) {
+//     queryRandom=[question.question]
+//     popped= queryRandom.pop()
+//     // allAswers.push(question.correct_answer + question.incorrect_answers)
+//     queryText.innerHTML= popped
+//     // console.log(popped)
+//     // }      return queryRandom[Math.floor( Math.random()* queryRandom.length)]
+//   }     
+//   // return popped
 
 
 
-}
-console.log(queryRandom())
+// }
+// console.log(queryRandom())
+
+
+    const button= document.querySelector('button')
+    
+    
+    
+    function queryRandom(questions) {
+      const queryText= document.querySelector('#query')
+      
+      let queryRandom=[]
+      let allAswers=[]
+      for (const question of questions) {
+        queryRandom.push(question.question)
+      // queryText.innerHTML = queryRandom[Math.floor( Math.random()* queryRandom.length)]
+    }    
+    while(queryRandom.length)   {
+      const random= Math.floor( Math.random()* queryRandom.length)
+      const printEl= queryRandom.splice(random, 1) [0]
+      queryText.innerHTML= printEl
+    }     
+    
+    
+    
+    
+    
+    
+    
+  }
+  
+
+
+queryRandom(questions)
 
 
 //-------------------FUNZIONE CHE RESTITUISCE TUTTE LE RISPOSTE IN ORDINE CASUALE--------------
