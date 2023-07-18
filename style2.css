@@ -45,3 +45,11 @@ header, img {
     bottom: 5px;
     right: 25px;
 }
+
+.box {
+    display: flex;
+}
+
+#check {
+    display: flex;
+}

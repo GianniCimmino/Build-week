@@ -108,7 +108,7 @@ const questions = [
     nextQuestionButton.addEventListener("click", NextQuestionFunction)
   // creo una variabile count 
     let count = 0
-    let divButton = document.querySelector(".choices")
+    let divButton = document.querySelector(".box")
    
     function NextQuestionFunction(event) { // ad ogni click itera la prossima domanda 
         //la variabile count aumenta ad ogni click 
