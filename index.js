@@ -1,3 +1,4 @@
+
 const questions = [
     {
       category: "Science: Computers",
@@ -16,7 +17,7 @@ const questions = [
       type: "multiple",
       difficulty: "easy",
       question:
-        "In the programming language Java, which of these keywords would you put on a variable to make sure it doesn&#039;t get modified?",
+        "In the programming language Java, which of these keywords would you put on a variable to make sure it doesn't get modified?",
       correct_answer: "Final",
       incorrect_answers: ["Static", "Private", "Public"],
     },
@@ -97,3 +98,37 @@ const questions = [
       incorrect_answers: ["Python", "C", "Jakarta"],
     },
   ];
+
+
+  // creo una variabile per il paragrafo dove andrà poi inserita la domanda
+    let question = document.querySelector(".question")
+
+  // creo l'event listener per il bottone che serve per proseguire alla prossima domanda:
+    let nextQuestionButton = document.querySelector(".next_question_button")
+    nextQuestionButton.addEventListener("click", NextQuestionFunction)
+  // creo una variabile count 
+    let count = 0
+    let divButton = document.querySelector(".choices")
+   
+    function NextQuestionFunction(event) { // ad ogni click itera la prossima domanda 
+        //la variabile count aumenta ad ogni click 
+        count ++
+        // ad ogni click pulisco il paragrafo della domanda
+        question.innerText = ""
+        //uso la variabile count per iterare ogni volta la domanda successiva
+        question.innerText = questions[count].question
+        
+
+       
+
+      
+        
+        /* DA IMPLEMENTARE:
+        - quando count = 10 allora mostra pagina dei risultati e varia inner text bottone con "invia esame" o simile
+        - ad ogni click varia il testo nei bottoni e il numero dei bottoni 
+        - capire come gestire la risposta multipla 
+        - creare una let che tenga conto delle risp giuste e delle risp sbagliate 
+        */
+    }
+
+    
