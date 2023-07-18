@@ -121,12 +121,14 @@ const questions = [
 
 // -------------FUNZIONE CHE RESTITUISCE DOMANDA RANDOM-------------
 // function queryRandom() {
+//         const queryText= document.querySelector('#query')
+
 //   let queryRandom=[]
 //   let allAswers=[]
 //   let popped=''
 //   for (const question of questions ) {
 //     queryRandom=[question.question]
-//     popped= queryRandom.pop()
+//     popped= queryRandom.shift()
 //     // allAswers.push(question.correct_answer + question.incorrect_answers)
 //     queryText.innerHTML= popped
 //     // console.log(popped)
@@ -140,32 +142,55 @@ const questions = [
 // console.log(queryRandom())
 
 
-    const button= document.querySelector('button')
-    
-    
-    
-    function queryRandom(questions) {
-      const queryText= document.querySelector('#query')
-      
-      let queryRandom=[]
-      let allAswers=[]
-      for (const question of questions) {
-        queryRandom.push(question.question)
-      // queryText.innerHTML = queryRandom[Math.floor( Math.random()* queryRandom.length)]
-    }    
-    while(queryRandom.length)   {
-      const random= Math.floor( Math.random()* queryRandom.length)
-      const printEl= queryRandom.splice(random, 1) [0]
-      queryText.innerHTML= printEl
-    }     
-    
-    
-    
-    
+
+function queryRandom() {
+  const button= document.querySelector('button')
+
+          const queryText= document.querySelector('#query')
+  
+    let queryRandom=[]
+    let allAswers=[]
+    let printElement
+    for (const question of questions ) {
+      printElement= queryRandom.shift()
+
+      queryRandom.push(question.question)
+      queryText.innerText= queryRandom
+
+
+    } console.log(queryRandom)
+  
     
     
     
   }
+
+
+    
+    
+    
+  //   function queryRandom(questions) {
+  //     const queryText= document.querySelector('#query')
+      
+  //     let queryRandom=[]
+  //     let allAswers=[]
+  //     for (const question of questions) {
+  //       queryRandom.push(question.question)
+  //     // queryText.innerHTML = queryRandom[Math.floor( Math.random()* queryRandom.length)]
+  //   }    
+  //   while(n<queryRandom.length)   {
+  //     const random= Math.floor( Math.random()* queryRandom.length)
+  //     const printEl= queryRandom.splice(random, 1) [0]
+  //     queryText.innerHTML= printEl
+  //   }     
+    
+    
+    
+    
+    
+    
+    
+  // }
   
 
 
