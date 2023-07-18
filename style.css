@@ -43,3 +43,7 @@ font-weight: bold;
 label{
     color: white;
 }
+
+input:checked +label {
+    color: red;
+}
