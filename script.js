@@ -142,9 +142,9 @@ const questions = [
 // console.log(queryRandom())
 
 
+// const button= document.querySelector('button')
 
 function queryRandom() {
-  const button= document.querySelector('button')
 
           const queryText= document.querySelector('#query')
   
@@ -194,7 +194,6 @@ function queryRandom() {
   
 
 
-queryRandom(questions)
 
 
 //-------------------FUNZIONE CHE RESTITUISCE TUTTE LE RISPOSTE IN ORDINE CASUALE--------------
