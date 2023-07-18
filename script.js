@@ -115,13 +115,33 @@ const questions = [
 // -------------FUNZIONE CHE RESTITUISCE DOMANDA RANDOM-------------
 function queryRandom() {
   let queryRandom=[]
-  for (const question of questions) {
-    queryRandom.push(question.question)
-    
-  
-  }      return queryRandom[Math.floor( Math.random()* queryRandom.length)]
+  let allAswers=[]
+  let popped=''
+  for (const question of questions ) {
+    queryRandom=[question.question]
+    popped= queryRandom.pop()
+    // allAswers.push(question.correct_answer + question.incorrect_answers)
+    console.log(popped)
+    // }      return queryRandom[Math.floor( Math.random()* queryRandom.length)]
+  }     
+  return queryRandom
+
+
 
 }
-
 console.log(queryRandom())
 
+
+//-------------------FUNZIONE CHE RESTITUISCE TUTTE LE RISPOSTE IN ORDINE CASUALE--------------
+
+// function answerRand() {
+//   let answers=[]
+//   for (const allAnswers of questions) {
+//     answers.push(answers.incorrect_answers + answers.correct_answer)
+//     return answersRandom
+  
+//   }      
+
+// }
+
+// console.log(answerRandom())
