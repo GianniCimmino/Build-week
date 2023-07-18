@@ -1,3 +1,4 @@
+
 const questions = [
     {
       category: "Science: Computers",
@@ -129,4 +130,5 @@ const questions = [
         - creare una let che tenga conto delle risp giuste e delle risp sbagliate 
         */
     }
+
     
