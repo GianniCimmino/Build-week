@@ -118,8 +118,7 @@ const questions = [
         question.innerText = questions[count].question
         
 
-       let button =  document.createElement("button")
-       divButton.appendChild(button)
+       
 
       
         
