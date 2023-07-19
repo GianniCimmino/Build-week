@@ -118,7 +118,7 @@ function enable() {
 // creo una variabile per prendere il div dove poi andrà il paragrafo della domanda
   let questionDiv = document.querySelector(".question")
 
-  let InputDiv = document.querySelector(".radio-button")
+  let choicesDiv = document.querySelector(".choices")
 
 // creo l'event listener per il bottone che serve per proseguire alla prossima domanda:
   let nextQuestionButton = document.querySelector(".next_question_button")
@@ -142,7 +142,7 @@ function enable() {
     
     // ad ogni click pulisco il paragrafo della domanda e i radio
       questionDiv.innerHTML = ""
-      InputDiv.innerHTML= ""
+      choicesDiv.innerHTML= ""
 
 
       
@@ -168,17 +168,23 @@ function enable() {
       // creo il ciclo for per i radio
       for (let i = 0; i < arrIncorrect.length; i++) {
 
-        // creo un label e lo appendo al Div
-        let label = document.createElement("label")
-        InputDiv.appendChild(label)
-        label.innerHTML = arrIncorrect[i]
-
+        //creo il div del radio
+        let inputDiv= document.createElement('div')
+        inputDiv.classList.add('radio-button')
+        choicesDiv.appendChild(inputDiv)
         // creo il radio e lo "appendo" al label 
         let radio = document.createElement("input")
             radio.setAttribute("type", "radio")
             radio.setAttribute("name", "a")
             
-            label.appendChild(radio)
+            inputDiv.appendChild(radio)
+        // creo un label e lo appendo al Div
+        let label = document.createElement("label")
+
+        inputDiv.appendChild(label)
+        label.innerHTML = arrIncorrect[i]
+
+        
 
             
         
