@@ -53,3 +53,23 @@ header, img {
 #check {
     display: flex;
 }
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+input[type='radio']:checked+label {
+    color: red;
+}
+
+input[type='radio']:checked+label:before{
+    border-color: transparent;
+    background-color: transparent;
+}
+.form-style {
+    font-family: 'Outfit', sans-serif;
+    font-size: 2rem;
+    font-weight: bold;
+    line-height: 1.1;
+  }
