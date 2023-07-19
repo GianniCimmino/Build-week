@@ -97,6 +97,7 @@ const questions = [
     correct_answer: "Java",
     incorrect_answers: ["Python", "C", "Jakarta"],
   },
+
 ]
 
 // Dichiaro la funzione che convalida il checkbox al button della pagina iniziale.
@@ -111,6 +112,8 @@ function enable() {
   }
 }
 
+
+  
 
 // creo una variabile per prendere il div dove poi andrà il paragrafo della domanda
   let questionDiv = document.querySelector(".question")
