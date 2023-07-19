@@ -171,13 +171,13 @@ const questions = [
       }
 
     } else  { // se count === 10 allora mostra altra pagina
-      /*
+      
       question.innerHTML = ""
       InputDiv.innerHTML= ""
       let footer = document.querySelector("footer")
       footer.innerHTML = ""
       question.innerText = "Ottimo hai passato l'esame!"
-      */
+      
     }
 
 
