@@ -1,3 +1,4 @@
+
 const questions = [
   {
     category: "Science: Computers",
@@ -16,7 +17,7 @@ const questions = [
     type: "multiple",
     difficulty: "easy",
     question:
-      "In the programming language Java, which of these keywords would you put on a variable to make sure it doesn&#039;t get modified?",
+      "In the programming language Java, which of these keywords would you put on a variable to make sure it doesn't get modified?",
     correct_answer: "Final",
     incorrect_answers: ["Static", "Private", "Public"],
   },
@@ -96,41 +97,106 @@ const questions = [
     correct_answer: "Java",
     incorrect_answers: ["Python", "C", "Jakarta"],
   },
-];
 
-// 1 - utente clicca su inizia
-// 2 - compare prima domanda
-// 3 - parte il tempo ( per ora opzionale - da fare alla fine) 
-// 4 - se la risposta è corretta assegna un punto memorizzato in variabile globale che registra punteggio altrimenti 0
-// 5 - se l'utente non risponde in tempo assegna zero
-// 6 - l'utente clicca su avanti
-// 7 - quando il numero di domande "questionNumber" termina, viene visualizzato il risultato ( per ora opzionale - da fare alla fine)
+]
 
+// Dichiaro la funzione che convalida il checkbox al button della pagina iniziale.
 
-
-// definire funzione che visualizza domanda random con risposte random
-// definire funzione che riconosce la risposta esatta, assegna il punteggio e lo memorizza in una variabile
-// funzione che mostra il punteggio.
-
+function enable() {
+  let check = document.getElementById("check");
+  let buttonNextToQuiz = document.getElementById("buttonNextToQuiz");
+  if (check.checked) {
+    buttonNextToQuiz.removeAttribute("disabled");
+  } else {
+    buttonNextToQuiz.disabled = "true";
+  }
+}
 
 
-// creo una variabile per il paragrafo dove andrà poi inserita la domanda
-let question = document.querySelector("#query")
+  
+
+// creo una variabile per prendere il div dove poi andrà il paragrafo della domanda
+  let questionDiv = document.querySelector(".question")
+
+  let InputDiv = document.querySelector(".radio-button")
 
 // creo l'event listener per il bottone che serve per proseguire alla prossima domanda:
-  let nextQuestionButton = document.querySelector("button")
+  let nextQuestionButton = document.querySelector(".next_question_button")
   nextQuestionButton.addEventListener("click", NextQuestionFunction)
 // creo una variabile count 
   let count = 0
-  let divButton = document.querySelector(".box")
+  
+  // estrapolo dall'html il <p> "question1/10"
+  let counterQuestions = document.querySelector(".counter")
  
   function NextQuestionFunction(event) { // ad ogni click itera la prossima domanda 
       //la variabile count aumenta ad ogni click 
       count ++
-      // ad ogni click pulisco il paragrafo della domanda
-      question.innerText = ""
+    console.log(count)
+
+    // ad ogni click il counterQuestions conta la domanda (ho aggiunto il +1 perchè count parte da 0, altrimenti il conteggio delle domande sarebbe indietro di uno)
+
+    counterQuestions.innerText = "QUESTION " + (count + 1)  + " / 10"
+
+
+    
+    // ad ogni click pulisco il paragrafo della domanda e i radio
+      questionDiv.innerHTML = ""
+      InputDiv.innerHTML= ""
+
+
+      
+
+     // ad ogni click creo il paragrafo con dentro la domanda 
+      let question = document.createElement("p")
+      questionDiv.appendChild(question)
+
+      // se count è diverso da 10 allora crea la domanda e le diverse opzioni
+      if (count !== 10) {
+        
+      
       //uso la variabile count per iterare ogni volta la domanda successiva
       question.innerText = questions[count].question
+
+      // creo un array unico con correct_answer e incorrect_answers per poter fare un ciclo for  e creare i radio
+
+      let arrIncorrect = questions[count].incorrect_answers
+      let strCorrect = questions[count].correct_answer
+      arrIncorrect.push(strCorrect) 
+
+      
+      // creo il ciclo for per i radio
+      for (let i = 0; i < arrIncorrect.length; i++) {
+
+        // creo un label e lo appendo al Div
+        let label = document.createElement("label")
+        InputDiv.appendChild(label)
+        label.innerHTML = arrIncorrect[i]
+
+        // creo il radio e lo "appendo" al label 
+        let radio = document.createElement("input")
+            radio.setAttribute("type", "radio")
+            radio.setAttribute("name", "a")
+            
+            label.appendChild(radio)
+
+            
+        
+      }
+
+    } else  { // se count === 10 allora mostra altra pagina
+      
+      question.innerHTML = ""
+      InputDiv.innerHTML= ""
+      let footer = document.querySelector("footer")
+      footer.innerHTML = ""
+      question.innerText = "Ottimo hai passato l'esame!"
+      
+    }
+
+
+
+
       
 
      
@@ -139,8 +205,8 @@ let question = document.querySelector("#query")
       
       /* DA IMPLEMENTARE:
       - quando count = 10 allora mostra pagina dei risultati e varia inner text bottone con "invia esame" o simile
-      - ad ogni click varia il testo nei bottoni e il numero dei bottoni 
-      - capire come gestire la risposta multipla 
+      - ad ogni click varia il testo nei bottoni e il numero dei bottoni  FATTO
+     
       - creare una let che tenga conto delle risp giuste e delle risp sbagliate 
       */
   }
@@ -160,31 +226,31 @@ let question = document.querySelector("#query")
 
     
 
-   //--------------------mia funzione-------------- 
-    let array= []
-    let correctText= document.querySelector('label[for=a]')
-    let incorrectTextB= document.querySelector('label[for=b]')
-    let incorrectTextC= document.querySelector('label[for=c]')
-    let incorrectTextD= document.querySelector('label[for=d]')
+//    //--------------------mia funzione-------------- 
+//     let array= []
+//     let correctText= document.querySelector('label[for=a]')
+//     let incorrectTextB= document.querySelector('label[for=b]')
+//     let incorrectTextC= document.querySelector('label[for=c]')
+//     let incorrectTextD= document.querySelector('label[for=d]')
 
 
 
-  function query(){
-    let queryTitle= document.querySelector('#query')
-    for (const question of questions){
-      array.push({question: question.question,correct_answer: question.correct_answer, incorrect_answers: question.incorrect_answers})
-    }
-    for (let i = 0; i < array.length; i++) {
-       let stampa = array[i];
-      queryTitle.innerText= stampa.question
-      correctText.innerText= stampa.correct_answer
-      correctText.innerTextB= stampa.incorrect_answer[0]
+//   function query(){
+//     let queryTitle= document.querySelector('#query')
+//     for (const question of questions){
+//       array.push({question: question.question,correct_answer: question.correct_answer, incorrect_answers: question.incorrect_answers})
+//     }
+//     for (let i = 0; i < array.length; i++) {
+//        let stampa = array[i];
+//       queryTitle.innerText= stampa.question
+//       correctText.innerText= stampa.correct_answer
+//       correctText.innerTextB= stampa.incorrect_answer[0]
 
 
 
-  }
-  }
-query()
+//   }
+//   }
+// query()
 
 
 

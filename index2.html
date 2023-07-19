@@ -1,23 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <link rel="stylesheet" href="style2.css" />
-  </head>
 
-  <body>
-    <header>
-      <img src="assets/epicode_logo.png" alt="logo" />
-    </header>
-    <div class="flex">
-      <div>
-        <p id="query" class="title">
-          How can I create a <span>checkbox in HTML?</span>
-        </p>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <link rel="stylesheet" href="style2.css" />
+</head>
+
+<body>
+  <header>
+    <img src="assets/epicode_logo.png" alt="logo">
+  </header>
+  <div class="flex">
+    <div class="question">
+      <p>What does CPU stand for?</p>
+    </div>
+    <div class="choices">
+
+      <div class=".radio-button">
+        <label for="a">Central Process Unit
+          <input type="radio" name="a">
+        </label>
       </div>
-      <div class="box">
+      <div class=".radio-button">
+
+        <label>Computer Personal Unit
+          <input type="radio" name="a">
+        </label>
+      </div>
+      <div class=".radio-button">
+
+        <label>Central Processor Unit
+          <input type="radio" name="a">
+        </label>
+      </div>
+      <div class=".radio-button">
+
+        <label>Central Processing Unit
+          <input type="radio" name="a">
+        </label>
+      </div>
+
+    </div>
+    <!-- <div class="choices">
         <div class="radio-button">
           <input type="radio" id="a" name="answers" />
           <label class="form-style" for="a">1</label>
@@ -34,12 +60,16 @@
           <input type="radio" id="d" name="answers" />
           <label class="form-style" for="d">4</label>
         </div>
+      </div> -->
+      <button class="next_question_button">bottone per proseguire</button>
       </div>
-      <button onclick="NextQuestionFunction()">Proceed</button>
     </div>
     <footer>
-      <p>QUESTION 1 <span>/ 10</span></p>
+      <p class="counter">
+        QUESTION 1 / 10
+      </p>
     </footer>
     <script src="index.js"></script>
-  </body>
+</body>
+
 </html>
