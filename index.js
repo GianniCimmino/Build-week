@@ -101,7 +101,15 @@ const questions = [
 
 // Dichiaro la funzione che convalida il checkbox al button della pagina iniziale.
 
-
+function enable() {
+  let check = document.getElementById("check");
+  let buttonNextToQuiz = document.getElementById("buttonNextToQuiz");
+  if (check.checked) {
+    buttonNextToQuiz.removeAttribute("disabled");
+  } else {
+    buttonNextToQuiz.disabled = "true";
+  }
+}
 
   
 
@@ -144,20 +152,24 @@ const questions = [
 
       // se count è diverso da 10 allora crea la domanda e le diverse opzioni
       if (count !== 10) {
-        
+
+        //se l'utente è all'ultima domanda cambia testo button 
+        if (count === 9){
+          nextQuestionButton.innerText = "SEND TEST"
+        }
       
-      //uso la variabile count per iterare ogni volta la domanda successiva
-      question.innerText = questions[count].question
+        //uso la variabile count per iterare ogni volta la domanda successiva
+        question.innerText = questions[count].question
 
-      // creo un array unico con correct_answer e incorrect_answers per poter fare un ciclo for  e creare i radio
+        // creo un array unico con correct_answer e incorrect_answers per poter fare un ciclo for  e creare i radio
 
-      let arrIncorrect = questions[count].incorrect_answers
-      let strCorrect = questions[count].correct_answer
-      arrIncorrect.push(strCorrect) 
+        let arrIncorrect = questions[count].incorrect_answers
+        let strCorrect = questions[count].correct_answer
+        arrIncorrect.push(strCorrect) 
 
       
-      // creo il ciclo for per i radio
-      for (let i = 0; i < arrIncorrect.length; i++) {
+        // creo il ciclo for per i radio
+        for (let i = 0; i < arrIncorrect.length; i++) {
 
         //creo il div del radio
         let inputDiv= document.createElement('div')
@@ -169,39 +181,41 @@ const questions = [
             radio.setAttribute("type", "radio")
             radio.setAttribute("name", "answers")
             inputDiv.appendChild(radio)
-      // creo un array di radio per poter usare un ciclo for e far cambiare l'id
+        // creo un array di radio per poter usare un ciclo for e far cambiare l'id
           let arrRadio = document.querySelectorAll("input[type='radio']")
           for (let i = 0; i < arrRadio.length; i++) {
             arrRadio[i].setAttribute("id", [i])
           }
           
 
-        // creo un label e lo appendo al Div
-        let label = document.createElement("label")
+          // creo un label e lo appendo al Div
+          let label = document.createElement("label")
             label.classList.add('form-style')
             inputDiv.appendChild(label)
 
-        // creo un array di label per poter usare un ciclo for e far cambiare il for
+          // creo un array di label per poter usare un ciclo for e far cambiare il for
             let arrLabel = document.querySelectorAll("label")
             for (let i = 0; i < arrLabel.length; i++) {
               arrLabel[i].setAttribute("for", [i])
             }
             
-        label.innerHTML = arrIncorrect[i]
+          label.innerHTML = arrIncorrect[i]
 
         
 
             
         
-      }
+          }
 
-    } else  { // se count === 10 allora mostra altra pagina
-      
-      question.innerHTML = ""
-      InputDiv.innerHTML= ""
-      let footer = document.querySelector("footer")
-      footer.innerHTML = ""
-      question.innerText = "Ottimo hai passato l'esame!"
-      
-    }
+      } else  { // se count === 10 allora mostra altra pagina
+
+       // cancellA TUTTO E MOSTRA IL PARAGRAFO 
+      let buttonNext = document.querySelector(".buttonNext")
+      buttonNext.innerHTML = ""
+        question.innerHTML = ""
+        //InputDiv.innerHTML= ""
+        let footer = document.querySelector("footer")
+        footer.innerHTML = ""
+        question.innerText = "Ottimo hai passato l'esame!"
   }
+}

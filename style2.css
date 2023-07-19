@@ -13,12 +13,16 @@ body {
 
 header, img {
 
-    width: 12vw;
-    margin-left: 60px;
-    margin-top: 50px;
-
+    width: 150px;
+    cursor: pointer;
+    
+    
 }
  
+header{
+    margin-top: 60px;
+    margin-left: 90px;
+}
 
 
 .question {

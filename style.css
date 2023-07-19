@@ -1,0 +1,136 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,600;1,400;1,600;1,800&family=Outfit:wght@100;200&family=Roboto&display=swap');
+
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Montserrat', serif;
+}
+
+body {
+    background-image: url(assets/bg.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+}
+
+.mainPageContainer {
+    margin: 50px 50px;
+    padding-top: 10px;
+    padding-left: 40px;
+}
+
+.logo-container img {
+    width: 150px;
+    cursor: pointer;
+}
+
+.title {
+    color: white;
+    width: 25%;
+    padding-top: 60px;
+    font-weight: lighter;
+}
+
+.title h1 {
+    font-weight: 400;
+    font-size: 50pt;
+}
+
+.title span {
+    font-weight: 600;
+    font-size: 60pt;
+
+}
+
+.title h3 {
+    color: #d20094;
+    font-size: 25pt;
+    padding-top: 15px;
+    padding-bottom: 10px;
+}
+
+.paragraph {
+    color: white;
+}
+
+.paragraph p {
+    font-weight: 300;
+    font-size: 12px;
+    padding-bottom: 30px;
+}
+
+
+ul {
+    font-size: 12px;
+    font-weight: 200;
+    padding-left: 20px;
+    padding-bottom: 90px;
+}
+
+ul li {
+    padding: 2px;
+}
+
+ul span {
+    font-weight: 800;
+    font-size: 9pt;
+}
+
+.container {
+    display: flex;
+    align-items: center;
+}
+
+input[type="checkbox"] {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    /* style checkbox */
+    width: 15px;
+    height: 15px;
+    background-color: white;
+    border: 1px solid white;
+  }
+  input[type="checkbox"]:checked {
+    background-color: #0C113B;;
+  }
+  
+
+#check {
+    cursor: pointer;
+}
+
+.checkmark-container {
+    padding-left: 10px;
+}
+
+.checkmark-container span {
+    font-weight: 900;
+}
+
+
+.checkmark {
+    color: white;
+    font-size: 12px;
+    padding-top: 50px;
+}
+
+
+
+
+#buttonNextToQuiz {
+    margin-left: 250px;
+    background: #00ffff;
+    color: black;
+    width: 130px;
+    height: 40px;
+    font-weight: 800;
+    font-size: 15px;
+    cursor: pointer;
+    -webkit-box-shadow: 1px 1px 18px 8px rgba(0, 255, 255, 0.67);
+    box-shadow: 1px 1px 18px 8px rgba(0, 255, 255, 0.67);
+    border: 1px solid transparent;
+    
+}
+
