@@ -46,10 +46,12 @@ header, img {
     right: 25px;
 }
 
-.box {
-    display: flex;
+footer {
+    color: white;
+    position: absolute;
+    bottom: 50px;
 }
 
-#check {
-    display: flex;
+label {
+    color: white;
 }
