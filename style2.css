@@ -132,6 +132,8 @@ input:checked +label {
     
     line-height: 1.1;
     letter-spacing: 2.5px;
+    box-shadow: inset 0em -2px 2px white;
+
 }
 
 /* input[type='radio']:checked +label:before{
