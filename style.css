@@ -1,10 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,600;1,400;1,600;1,800&family=Outfit:wght@100;200&family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter&family=Outfit:wght@200;400,600,900&display=swap');
 
 
 * {
     margin: 0;
     padding: 0;
-    font-family: 'Montserrat', serif;
+    font-family: 'Outfit', sans-serif;
 }
 
 body {
@@ -56,13 +56,13 @@ body {
 
 .paragraph p {
     font-weight: 300;
-    font-size: 12px;
+    font-size: 15pt;
     padding-bottom: 30px;
 }
 
 
 ul {
-    font-size: 12px;
+    font-size: 14pt;
     font-weight: 200;
     padding-left: 20px;
     padding-bottom: 90px;
@@ -73,8 +73,8 @@ ul li {
 }
 
 ul span {
-    font-weight: 800;
-    font-size: 9pt;
+    font-weight: 700;
+    font-size: 13.5pt;
 }
 
 .container {
@@ -112,15 +112,16 @@ input[type="checkbox"] {
 
 .checkmark {
     color: white;
-    font-size: 12px;
+    font-size: 11pt;
     padding-top: 50px;
+    padding-left: 5px;
 }
 
 
 
 
 #buttonNextToQuiz {
-    margin-left: 250px;
+    margin-left: 270px;
     background: #00ffff;
     color: black;
     width: 130px;
