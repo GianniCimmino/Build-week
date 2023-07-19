@@ -46,6 +46,7 @@ header, img {
     right: 25px;
 }
 
+<<<<<<< Updated upstream
 footer {
     color: white;
     position: absolute;
@@ -54,4 +55,15 @@ footer {
 
 label {
     color: white;
+=======
+.choices {
+    box-sizing: content-box;
+    width: 100%;
+    border: solid #5B6DCD 10px;
+    padding: 5px;
+}
+
+.Scelta{
+   width: 100%;
+>>>>>>> Stashed changes
 }
