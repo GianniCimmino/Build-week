@@ -118,7 +118,7 @@ function enable() {
 // creo una variabile per prendere il div dove poi andrà il paragrafo della domanda
   let questionDiv = document.querySelector(".question")
 
-  let choicesDiv = document.querySelector(".choices")
+  let InputDiv = document.querySelector(".input")
 
 // creo l'event listener per il bottone che serve per proseguire alla prossima domanda:
   let nextQuestionButton = document.querySelector(".next_question_button")
@@ -127,9 +127,7 @@ function enable() {
   let count = 0
   
   // estrapolo dall'html il <p> "question1/10"
-  // let counterQuestions = document.querySelector(".counter")
-  let spanCounter= document.querySelector('#counter')
-
+  let counterQuestions = document.querySelector(".counter")
  
   function NextQuestionFunction(event) { // ad ogni click itera la prossima domanda 
       //la variabile count aumenta ad ogni click 
@@ -137,13 +135,14 @@ function enable() {
     console.log(count)
 
     // ad ogni click il counterQuestions conta la domanda (ho aggiunto il +1 perchè count parte da 0, altrimenti il conteggio delle domande sarebbe indietro di uno)
-    spanCounter.innerText = (count + 1) 
+
+    counterQuestions.innerText = "QUESTION " + (count + 1)  + " / 10"
 
 
     
     // ad ogni click pulisco il paragrafo della domanda e i radio
       questionDiv.innerHTML = ""
-      choicesDiv.innerHTML= ""
+      InputDiv.innerHTML= ""
 
 
       
@@ -169,26 +168,17 @@ function enable() {
       // creo il ciclo for per i radio
       for (let i = 0; i < arrIncorrect.length; i++) {
 
-        //creo il div del radio
-        let inputDiv= document.createElement('div')
-        inputDiv.classList.add('radio-button')
-        choicesDiv.appendChild(inputDiv)
-        // creo il radio e lo "appendo" al label 
-        let radio = document.createElement("input")
-            radio.classList.add('form-style')
-            radio.setAttribute("type", "radio")
-            radio.setAttribute("name", "answers")
-            radio.id= '1'
-            
-            inputDiv.appendChild(radio)
         // creo un label e lo appendo al Div
         let label = document.createElement("label")
-            label.classList.add('form-style')
-            label.setAttribute('for', '1')
-        inputDiv.appendChild(label)
+        InputDiv.appendChild(label)
         label.innerHTML = arrIncorrect[i]
 
-        
+        // creo il radio e lo "appendo" al label 
+        let radio = document.createElement("input")
+            radio.setAttribute("type", "radio")
+            radio.setAttribute("name", "a")
+            
+            label.appendChild(radio)
 
             
         
@@ -220,62 +210,3 @@ function enable() {
       - creare una let che tenga conto delle risp giuste e delle risp sbagliate 
       */
   }
-
-  
-
-
-
-
-
-
-    
-  
-    
-    
-    
-
-    
-
-//    //--------------------mia funzione-------------- 
-//     let array= []
-//     let correctText= document.querySelector('label[for=a]')
-//     let incorrectTextB= document.querySelector('label[for=b]')
-//     let incorrectTextC= document.querySelector('label[for=c]')
-//     let incorrectTextD= document.querySelector('label[for=d]')
-
-
-
-//   function query(){
-//     let queryTitle= document.querySelector('#query')
-//     for (const question of questions){
-//       array.push({question: question.question,correct_answer: question.correct_answer, incorrect_answers: question.incorrect_answers})
-//     }
-//     for (let i = 0; i < array.length; i++) {
-//        let stampa = array[i];
-//       queryTitle.innerText= stampa.question
-//       correctText.innerText= stampa.correct_answer
-//       correctText.innerTextB= stampa.incorrect_answer[0]
-
-
-
-//   }
-//   }
-// query()
-
-
-
-   
-
-
-
-// Dichiaro la funzione che convalida il checkbox al button.
-
-// function enable() {
-//   let check = document.getElementById("check");
-//   let buttonNextToQuiz = document.getElementById("buttonNextToQuiz");
-//   if (check.checked) {
-//     buttonNextToQuiz.removeAttribute("disabled");
-//   } else {
-//     buttonNextToQuiz.disabled = "true";
-//   }
-// }
