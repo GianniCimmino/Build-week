@@ -79,9 +79,23 @@ ul span {
 
 .container {
     display: flex;
+    align-items: center;
 }
 
-
+input[type="checkbox"] {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    /* Styling checkbox */
+    width: 15px;
+    height: 15px;
+    background-color: #0C113B;
+    border: 1px solid white;
+  }
+  input[type="checkbox"]:checked {
+    background-color: #0C113B;
+  }
+  
 
 #check {
     cursor: pointer;
@@ -91,15 +105,10 @@ ul span {
     padding-left: 10px;
 }
 
-.checkmark-container span{
+.checkmark-container span {
     font-weight: 900;
 }
 
-#check {
-    border: 1px solid white;
-    background-color: #0C113B;
-    width: 20px;
-}
 
 .checkmark {
     color: white;
@@ -119,6 +128,8 @@ ul span {
     font-weight: 800;
     font-size: 15px;
     cursor: pointer;
-    -webkit-box-shadow: inset -1px 3px 8px 5px #1F87FF, 2px 5px 16px 0px #0B325E, 0px 0px 20px 8px rgba(0, 255, 255, 0.21);
-    box-shadow: inset -1px 3px 8px 5px #1F87FF, 2px 5px 16px 0px #0B325E, 0px 0px 20px 8px rgba(0, 255, 255, 0.21);
+    -webkit-box-shadow: 1px 1px 18px 8px rgba(0, 255, 255, 0.67);
+    box-shadow: 1px 1px 18px 8px rgba(0, 255, 255, 0.67);
+    border: 1px solid transparent;
 }
+
