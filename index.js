@@ -178,12 +178,13 @@ function enable() {
             radio.classList.add('form-style')
             radio.setAttribute("type", "radio")
             radio.setAttribute("name", "answers")
+            radio.id= '1'
             
             inputDiv.appendChild(radio)
         // creo un label e lo appendo al Div
         let label = document.createElement("label")
             label.classList.add('form-style')
-            label.setAttribute('[for=1]')
+            label.setAttribute('for', '1')
         inputDiv.appendChild(label)
         label.innerHTML = arrIncorrect[i]
 
