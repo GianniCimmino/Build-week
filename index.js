@@ -127,7 +127,9 @@ function enable() {
   let count = 0
   
   // estrapolo dall'html il <p> "question1/10"
-  let counterQuestions = document.querySelector(".counter")
+  // let counterQuestions = document.querySelector(".counter")
+  let spanCounter= document.querySelector('#counter')
+
  
   function NextQuestionFunction(event) { // ad ogni click itera la prossima domanda 
       //la variabile count aumenta ad ogni click 
@@ -135,8 +137,7 @@ function enable() {
     console.log(count)
 
     // ad ogni click il counterQuestions conta la domanda (ho aggiunto il +1 perchè count parte da 0, altrimenti il conteggio delle domande sarebbe indietro di uno)
-
-    counterQuestions.innerText = "QUESTION " + (count + 1)  + " / 10"
+    spanCounter.innerText = (count + 1) 
 
 
     
@@ -174,13 +175,15 @@ function enable() {
         choicesDiv.appendChild(inputDiv)
         // creo il radio e lo "appendo" al label 
         let radio = document.createElement("input")
+            radio.classList.add('form-style')
             radio.setAttribute("type", "radio")
-            radio.setAttribute("name", "a")
+            radio.setAttribute("name", "answers")
             
             inputDiv.appendChild(radio)
         // creo un label e lo appendo al Div
         let label = document.createElement("label")
-
+            label.classList.add('form-style')
+            label.setAttribute('[for=1]')
         inputDiv.appendChild(label)
         label.innerHTML = arrIncorrect[i]
 
