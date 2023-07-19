@@ -99,6 +99,19 @@ const questions = [
   },
 ]
 
+// Dichiaro la funzione che convalida il checkbox al button della pagina iniziale.
+
+function enable() {
+  let check = document.getElementById("check");
+  let buttonNextToQuiz = document.getElementById("buttonNextToQuiz");
+  if (check.checked) {
+    buttonNextToQuiz.removeAttribute("disabled");
+  } else {
+    buttonNextToQuiz.disabled = "true";
+  }
+}
+
+
 // creo una variabile per prendere il div dove poi andrà il paragrafo della domanda
   let questionDiv = document.querySelector(".question")
 
