@@ -38,9 +38,26 @@ header, img {
 }
 
 footer {
+    width: 100%;
     color: white;
     position: absolute;
     bottom: 50px;
+}
+#box-counter{
+    display: flex;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+
+}
+.counter span{
+    color: #d20094;
+
+}
+
+.counter p{
+    font-family: 'Outfit', sans-serif;
+
 }
 
 .flex {
@@ -84,23 +101,25 @@ input:checked +label {
     border-radius: 5em;
     box-shadow: 1px -5px 3px white;
     background: rgba(102,51,153,0.3);
+    font-family: 'Outfit', sans-serif;
+    font-size: 1.1em;
+    
+    line-height: 1.1;
+    letter-spacing: 2.5px;
+
 
 }
-input[type='radio']:checked+label {
+
+input:checked +label {
     color: red;
+    background: linear-gradient(#d20094, #900080);
 }
 
-input[type='radio']:checked+label:before{
+input[type='radio']:checked +label:before{
     border-color: transparent;
     background-color: transparent;
 }
-.form-style {
-    font-family: 'Outfit', sans-serif;
-    font-size: 2rem;
-    font-weight: bold;
-    line-height: 1.1;
-    
-  }
+
   input[type="radio"] {
     /* Add if not using autoprefixer */
     -webkit-appearance: none;
@@ -110,3 +129,16 @@ input[type='radio']:checked+label:before{
     /* Not removed via appearance */
     margin: 0;
   }
+
+  #buttonNextToQuiz {
+    margin-left: 250px;
+    background: #00ffff;
+    color: black;
+    width: 130px;
+    height: 40px;
+    font-weight: 800;
+    font-size: 15px;
+    cursor: pointer;
+    -webkit-box-shadow: inset -1px 3px 8px 5px #1F87FF, 2px 5px 16px 0px #0B325E, 0px 0px 20px 8px rgba(0, 255, 255, 0.21);
+    box-shadow: inset -1px 3px 8px 5px #1F87FF, 2px 5px 16px 0px #0B325E, 0px 0px 20px 8px rgba(0, 255, 255, 0.21);
+}
