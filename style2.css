@@ -13,16 +13,12 @@ body {
 
 header, img {
 
-    width: 150px;
-    cursor: pointer;
-    
-    
+    width: 12vw;
+    margin-left: 60px;
+    margin-top: 50px;
+
 }
  
-header{
-    margin-top: 60px;
-    margin-left: 90px;
-}
 
 
 .question {
@@ -116,12 +112,28 @@ input:checked +label {
 .form-style{
     cursor: pointer;
 }
-.radio-button input:checked +label{
-    background-color: #1F87FF;
-}
+
 .form-style:checked +label {
-    color: red;
+    color: white;
     background: linear-gradient(#d20094, #900080);
+    
+    text-align: center;
+    width: 100%;
+    height: 10vh;
+    justify-content: center;
+
+    display: flex;
+    align-items: center;
+    opacity: 1;
+    border-radius: 5em;
+    box-shadow: 1px -5px 3px white;
+    font-family: 'Outfit', sans-serif;
+    font-size: 1.1em;
+    
+    line-height: 1.1;
+    letter-spacing: 2.5px;
+    box-shadow: inset 0em -2px 2px white;
+
 }
 
 /* input[type='radio']:checked +label:before{
@@ -129,14 +141,14 @@ input:checked +label {
     background-color: transparent;
 } */
 
-  input[type="radio"] {
-    /* Add if not using autoprefixer */
-    /*-webkit-appearance: none;*/
-    appearance: none;
-    /* For iOS < 15 to remove gradient background */
-    /*background-color: #fff;
-    /* Not removed via appearance */
-    margin: 0;
+ input[type="radio"] {
+    /*Add if not using autoprefixer */
+ -webkit-appearance: none;
+    appearance: none; 
+ /*For iOS < 15 to remove gradient background */
+ background-color: #fff; 
+ /*Not removed via appearance */
+ margin: 0;
   } 
 
   #buttonNextToQuiz {
