@@ -50,7 +50,7 @@ footer {
     justify-content: center;
 
 }
-.counter span{
+#tenAnswers{
     color: #d20094;
 
 }
@@ -109,18 +109,23 @@ input:checked +label {
 
 
 }
-
-input:checked +label {
+.form-style{
+    cursor: pointer;
+}
+.radio-button input:checked +label{
+    background-color: #1F87FF;
+}
+.form-style:checked +label {
     color: red;
     background: linear-gradient(#d20094, #900080);
 }
 
-input[type='radio']:checked +label:before{
+/* input[type='radio']:checked +label:before{
     border-color: transparent;
     background-color: transparent;
-}
+} */
 
-  input[type="radio"] {
+  /* input[type="radio"] {
     /* Add if not using autoprefixer */
     -webkit-appearance: none;
     appearance: none;
@@ -128,7 +133,7 @@ input[type='radio']:checked +label:before{
     background-color: #fff;
     /* Not removed via appearance */
     margin: 0;
-  }
+  } */
 
   #buttonNextToQuiz {
     margin-left: 250px;
