@@ -263,4 +263,15 @@ function enable() {
    
 
 
-  
+
+// Dichiaro la funzione che convalida il checkbox al button.
+
+function enable() {
+  let check = document.getElementById("check");
+  let buttonNextToQuiz = document.getElementById("buttonNextToQuiz");
+  if (check.checked) {
+    buttonNextToQuiz.removeAttribute("disabled");
+  } else {
+    buttonNextToQuiz.disabled = "true";
+  }
+}
