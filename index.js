@@ -99,16 +99,14 @@ const questions = [
 
 ]
 
+  
+
+// creo l'event listener per il bottone che serve per proseguire alla prossima domanda:
+let nextQuestionButton = document.querySelector(".next_question_button")
+nextQuestionButton.addEventListener("click", NextQuestionFunction)
+
+
 // Dichiaro la funzione che convalida il checkbox al button della pagina iniziale.
-let demoArray = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9 ];
-
-function shuffleArray(inputArray){
-   inputArray.sort(()=> Math.random() - 0.5);
-}
-
-shuffleArray(demoArray);
-console.log(demoArray);
-
 function enable() {
   let check = document.getElementById("check");
   let buttonNextToQuiz = document.getElementById("buttonNextToQuiz");
@@ -119,41 +117,52 @@ function enable() {
   }
 }
 
+// dichiaro la variabile che mi conta ogni volta che clicco la risposta giusta
+let RightAnswerCounter = 0
 
 
 
 
-// creo una variabile per prendere il div dove poi andrà il paragrafo della domanda
+// creo un array che si mischia ogni volta, lo utilizzerò  per la formazione casuale delle domande
+
+let IndiceArray = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9 ];
+
+
+//questa è la funzione che serve per mischiare l'array
+function shuffleArray(inputArray){
+   inputArray.sort(()=> Math.random() - 0.5);
+}
+
+shuffleArray(IndiceArray);
+
+
+
+// creo una variabile per prendere il div dove poi andrà il paragrafo della domanda e le risposte
   let questionDiv = document.querySelector(".question")
   let choicesDiv = document.querySelector(".choices")
 
+ //creo il paragrafo con dentro la domanda 
+ let question = document.createElement("p")
+ questionDiv.appendChild(question)
 
-// creo l'event listener per il bottone che serve per proseguire alla prossima domanda:
-  let nextQuestionButton = document.querySelector(".next_question_button")
-  nextQuestionButton.addEventListener("click", NextQuestionFunction)
 
-// creo una variabile count 
+// creo una variabile count che utilizzerò come contatore delle domande nella stringa question e come indice dell'array casuale
   let count = 0
   
-  //creo il paragrafo con dentro la domanda 
-  let question = document.createElement("p")
-  questionDiv.appendChild(question)
-
-
- //creo un count2, che mi servirò per iterare domande casuali
-  let count2 = demoArray[count] 
-  console.log(count2)
-
+ 
+ //creo un count2, che mi servirà come indice dell'array questions
+  let count2 = IndiceArray[count] 
   
+
+  // estrapolo dall'html il <p> "question1/10"
+  let spanCounter= document.querySelector('#counter')
+   
+
+
+
+  // itero la prima domanda al caricare della pagina(casuale)
   question.innerText = questions[count2].question
   
-  
-  // estrapolo dall'html il <p> "question1/10"
-  // let counterQuestions = document.querySelector(".counter")
-  let spanCounter= document.querySelector('#counter')
-
-
-
    // creo un array unico con correct_answer e incorrect_answers per poter fare un ciclo for  e creare i radio
 
    let arrIncorrect = questions[count2].incorrect_answers
@@ -164,50 +173,68 @@ function enable() {
    // creo il ciclo for per i radio
    for (let i = 0; i < arrIncorrect.length; i++) {
 
-   //creo il div del radio
-   let inputDiv= document.createElement('div')
-   inputDiv.classList.add('radio-button')
-   choicesDiv.appendChild(inputDiv)
-   // creo il radio e lo "appendo" al label 
-   let radio = document.createElement("input")
+      //creo il div del radio 
+      let inputDiv= document.createElement('div')
+      inputDiv.classList.add('radio-button')
+      choicesDiv.appendChild(inputDiv)
+      // creo il radio 
+      let radio = document.createElement("input")
        radio.classList.add('form-style')
        radio.setAttribute("type", "radio")
        radio.setAttribute("name", "answers")
        inputDiv.appendChild(radio)
-   // creo un array di radio per poter usare un ciclo for e far cambiare l'id
-     let arrRadio = document.querySelectorAll("input[type='radio']")
+      // creo un array di radio per poter usare un ciclo for e far cambiare l'id
+      let arrRadio = document.querySelectorAll("input[type='radio']")
      for (let i = 0; i < arrRadio.length; i++) {
        arrRadio[i].setAttribute("id", [i])
-     }
-     
-
+       
+      }
      // creo un label e lo appendo al Div
      let label = document.createElement("label")
-       label.classList.add('form-style')
+       label.classList.add('form-style')  
        inputDiv.appendChild(label)
-
      // creo un array di label per poter usare un ciclo for e far cambiare il for
        let arrLabel = document.querySelectorAll("label")
        for (let i = 0; i < arrLabel.length; i++) {
          arrLabel[i].setAttribute("for", [i])
+
+         
+         arrLabel[i].addEventListener("click", function CheckRightAnswer(event){
+         let Answer = event.target.innerText
+         if (Answer === strCorrect){
+            RightAnswerCounter++
+            arrLabel[i].removeEventListener("click", CheckRightAnswer)
+            console.log(RightAnswerCounter)
+          }
+          })
+       
+        } 
+         
+        // inserisco le risposte plausibili 
+     label.innerHTML = arrIncorrect[i]
+
        }
        
-     label.innerHTML = arrIncorrect[i]
-     }
+      
+     
+     
 
-    
+    // creo una varibile per rendere dinamico il counter dele domande, se aumentano le domande nell'array aumenta in automatico il counter
      let span = document.querySelector("#tenAnswers")
      spanCounter.innerText = (count + 1) + " / "
      span.innerText = questions.length
- 
+
+     
+
+ // attivo la funzione del click
   function NextQuestionFunction(event) { // ad ogni click itera la prossima domanda 
       //la variabile count aumenta ad ogni click 
       count ++
-      count2 = demoArray[count] 
-      console.log(questions[count2])
+      count2 = IndiceArray[count] 
       
       
-      console.log(count2)
+      
+      
     // ad ogni click il counterQuestions conta la domanda (ho aggiunto il +1 perchè count parte da 0, altrimenti il conteggio delle domande sarebbe indietro di uno)
     spanCounter.innerText = (count + 1) + " / "
     span.innerText = questions.length
@@ -243,14 +270,14 @@ function enable() {
 
       
         // creo il ciclo for per i radio
-         // creo il ciclo for per i radio
-   for (let i = 0; i < arrIncorrect.length; i++) {
+        
+      for (let i = 0; i < arrIncorrect.length; i++) {
 
     //creo il div del radio
     let inputDiv= document.createElement('div')
     inputDiv.classList.add('radio-button')
     choicesDiv.appendChild(inputDiv)
-    // creo il radio e lo "appendo" al label 
+    // creo il radio 
     let radio = document.createElement("input")
         radio.classList.add('form-style')
         radio.setAttribute("type", "radio")
@@ -272,6 +299,15 @@ function enable() {
         let arrLabel = document.querySelectorAll("label")
         for (let i = 0; i < arrLabel.length; i++) {
           arrLabel[i].setAttribute("for", [i])
+          arrLabel[i].addEventListener("click", function CheckRightAnswer(event){
+            let Answer = event.target.innerText
+            if (Answer === strCorrect){
+               RightAnswerCounter++
+               arrLabel[i].removeEventListener("click", CheckRightAnswer)
+               console.log(RightAnswerCounter)
+             }
+             })
+
         }
         
       label.innerHTML = arrIncorrect[i]
@@ -292,6 +328,21 @@ function enable() {
         //InputDiv.innerHTML= ""
         let footer = document.querySelector("footer")
         footer.innerHTML = ""
-        question.innerText = "Ottimo hai passato l'esame!"
+        if (RightAnswerCounter >= 6 ) {
+          question.innerText = "Grande!! L'hai passato!"
+          let TagP =  document.createElement("p")
+          question.appendChild(TagP)
+          TagP.innerText = "Hai risposto correttamente a " + RightAnswerCounter + " domande su 10 :)"
+          
+        } else {
+          question.innerText = "Oops, non l'hai passato!"
+          let TagP =  document.createElement("p")
+          question.appendChild(TagP)
+          TagP.innerText = "Hai risposto correttamente a " + RightAnswerCounter + " domande su 10 :/"
+        }
+        
+
+        console.log(RightAnswerCounter)
   }
 }
+
