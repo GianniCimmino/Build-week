@@ -110,8 +110,8 @@ shuffleArray(demoArray);
 console.log(demoArray);
 
 function enable() {
-  let check = document.getElementById("check");
-  let buttonNextToQuiz = document.getElementById("buttonNextToQuiz");
+  let check = document.querySelector("#check");
+  let buttonNextToQuiz = document.querySelector("#buttonNextToQuiz");
   if (check.checked) {
     buttonNextToQuiz.removeAttribute("disabled");
   } else {
@@ -295,3 +295,4 @@ function enable() {
         question.innerText = "Ottimo hai passato l'esame!"
   }
 }
+
