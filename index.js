@@ -100,6 +100,38 @@ const questions = [
 
 ]
 
+
+//funzione per contare risposte corrette
+
+function showResults(){
+ let answersContainer= document.querySelectorAll('.radio-button')
+
+ let countNum=0
+ let userAnswers=''
+
+for (let i = 0; i < questions.length; i++) {
+  // const question = questions[i];
+  userAnswers = (answersContainer[i].querySelector('input[id='+i+']:checked')).value
+
+  if(userAnswers===questions[i].correct_answer){
+    countNum++
+  
+}
+let output= document.querySelector('#box-counter')
+output.innerHTML = numCorrect + 'risposte corrette su ' + questions.length;
+
+}
+}
+
+
+
+
+
+
+
+
+
+
 //creo funzione per togliere classe e rendere visibile bottone per andare avanti con domande
 
 const labelChecked= document.querySelector('.form-style')
@@ -142,7 +174,7 @@ divProceed.classList.remove('hidden')
 
 
 
-//------------FUNZIONE PER FAR APPARIRE E SCOMPARIRE BOTTONE NEXTQUIZ------------
+
 // Dichiaro la funzione che convalida il checkbox al button della pagina iniziale.
 
 function enable() {
@@ -180,12 +212,11 @@ function NextQuestionFunction(event) { // ad ogni click itera la prossima domand
   
     count ++
   console.log(count)
-// let spanTenAnswers= questions.length
-// let spanPurple= document.createElement('span')
-// spanPurple.id= 'tenAnswers'
-// spanPurple.innerText= questions.length
+let spanTenAnswers= document.querySelector('#tenAnswers')
   // ad ogni click il counterQuestions conta la domanda (ho aggiunto il +1 perchè count parte da 0, altrimenti il conteggio delle domande sarebbe indietro di uno)
-  spanCounter.innerText = (count + 1) + ' / ' + questions.length
+  spanCounter.innerText = (count + 1) + ' / '
+  spanTenAnswers.innerText= questions.length
+
 
 
   
