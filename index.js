@@ -103,8 +103,8 @@ const questions = [
 // Dichiaro la funzione che convalida il checkbox al button della pagina iniziale.
 
 function enable() {
-  let check = document.getElementById("check");
-  let buttonNextToQuiz = document.getElementById("buttonNextToQuiz");
+  let check = document.querySelector("#check");
+  let buttonNextToQuiz = document.querySelector("#buttonNextToQuiz");
   if (check.checked) {
     buttonNextToQuiz.removeAttribute("disabled");
   } else {

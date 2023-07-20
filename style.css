@@ -1,10 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter&family=Outfit:wght@200;400,600,900&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,600;1,400;1,600;1,800&family=Outfit:wght@100;200&family=Roboto&display=swap');
 
 * {
     margin: 0;
     padding: 0;
-    font-family: 'Outfit', sans-serif;
+    font-family: 'Montserrat', serif;
 }
 
 body {
@@ -30,16 +29,17 @@ body {
     width: 25%;
     padding-top: 60px;
     font-weight: lighter;
+    
 }
 
 .title h1 {
     font-weight: 400;
-    font-size: 50pt;
+    font-size: 55pt;
 }
 
 .title span {
     font-weight: 600;
-    font-size: 60pt;
+    font-size: 50pt;
 
 }
 
@@ -52,17 +52,19 @@ body {
 
 .paragraph {
     color: white;
+   
+
 }
 
 .paragraph p {
     font-weight: 300;
-    font-size: 15pt;
+    font-size: 12px;
     padding-bottom: 30px;
 }
 
 
 ul {
-    font-size: 14pt;
+    font-size: 12px;
     font-weight: 200;
     padding-left: 20px;
     padding-bottom: 90px;
@@ -73,8 +75,8 @@ ul li {
 }
 
 ul span {
-    font-weight: 700;
-    font-size: 13.5pt;
+    font-weight: 800;
+    font-size: 9pt;
 }
 
 .container {
@@ -86,14 +88,14 @@ input[type="checkbox"] {
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
-    /* style checkbox */
+
     width: 15px;
     height: 15px;
-    background-color: white;
+    background-color: #0C113B;
     border: 1px solid white;
   }
   input[type="checkbox"]:checked {
-    background-color: #0C113B;;
+    background-color: white;
   }
   
 
@@ -112,16 +114,15 @@ input[type="checkbox"] {
 
 .checkmark {
     color: white;
-    font-size: 11pt;
+    font-size: 12px;
     padding-top: 50px;
-    padding-left: 5px;
 }
 
 
 
 
 #buttonNextToQuiz {
-    margin-left: 270px;
+    margin-left: 250px;
     background: #00ffff;
     color: black;
     width: 130px;
