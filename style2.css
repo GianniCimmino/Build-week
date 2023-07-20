@@ -1,5 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter&family=Outfit:wght@200;400&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,600;1,400;1,600;1,800&family=Outfit:wght@100;200&family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
+* {
+    font-family: 'Outfit', sans-serif;
+    
+}
 
 body {
     
@@ -20,9 +24,8 @@ header, img {
 }
  
 
-
 .question {
-    font-family: 'Outfit', sans-serif;
+    
     color: white;
     font-size: 30px;
     font-weight: 200;
@@ -94,7 +97,6 @@ input:checked +label {
     width: 40%;
     height: 10vh;
     justify-content: center;
-
     display: flex;
     align-items: center;
     opacity: 1;
@@ -103,14 +105,14 @@ input:checked +label {
     background: rgba(102,51,153,0.3);
     font-family: 'Outfit', sans-serif;
     font-size: 1.1em;
-    
     line-height: 1.1;
     letter-spacing: 2.5px;
-
+    
 
 }
 .form-style{
     cursor: pointer;
+    font-family: 'Inter', sans-serif;
 }
 
 .form-style:checked +label {
@@ -160,6 +162,8 @@ input:checked +label {
     font-weight: 800;
     font-size: 15px;
     cursor: pointer;
-    -webkit-box-shadow: inset -1px 3px 8px 5px #1F87FF, 2px 5px 16px 0px #0B325E, 0px 0px 20px 8px rgba(0, 255, 255, 0.21);
-    box-shadow: inset -1px 3px 8px 5px #1F87FF, 2px 5px 16px 0px #0B325E, 0px 0px 20px 8px rgba(0, 255, 255, 0.21);
+    -webkit-box-shadow: 1px 1px 18px 8px rgba(0, 255, 255, 0.67);
+    box-shadow: 1px 1px 18px 8px rgba(0, 255, 255, 0.67);
+    border: 1px solid transparent;
+    font-family: 'Montserrat', serif;
 }

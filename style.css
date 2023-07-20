@@ -89,11 +89,12 @@ input[type="checkbox"] {
     /* style checkbox */
     width: 15px;
     height: 15px;
-    background-color: white;
+    background-color: #0C113B;
     border: 1px solid white;
   }
   input[type="checkbox"]:checked {
-    background-color: #0C113B;;
+    background-color: #0C113B;
+    background-color: white;
   }
   
 
