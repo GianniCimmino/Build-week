@@ -169,8 +169,8 @@ input[type="radio"] {
     /*Not removed via appearance */
     margin: 0;
 }
-.hidden{
-    visibility: hidden;
+#hidden{
+    visibility: visible;
 }
 #proceed {
     width: 100%;

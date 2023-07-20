@@ -10,56 +10,28 @@
 
 <body>
   <header>
-    <div id="logo">
-
-      <img src="assets/epicode_logo.png" alt="logo">
-    </div>
+    <img src="assets/epicode_logo.png" alt="logo">
   </header>
-  <main>
+  <div class="flex">
+    <div class="question">
 
-    <div class="flex">
-      <div class="question">
-        <p>What does CPU stand for?</p>
+    </div>
+
+    <div class="choices">
+
+
+    </div>
+    <div class="buttonNext" id="hidden">
+      <button id="buttonNextToQuiz" class="next_question_button">PROCEED</button>
+    </div>
+    <footer>
+      <div id="box-counter">
+        <p class="counter">
+          QUESTION <span id="counter">1 </span><span id="tenAnswers"></span>
+        </p>
       </div>
-      
-      
-      
-  <div class="choices">
-        <div class="radio-button">
-          <input class="form-style"type="radio" id="1" name="answers" />
-          <label class="form-style" name="answers" for="1">Central Processing Unit</label>
-        </div>
-        <div class="radio-button">
-          <input class="form-style" type="radio" id="2" name="answers" />
-          <label class="form-style"name="answers"  for="2">Central Process Unit</label>
-        </div>
-        <div class="radio-button">
-          <input class="form-style"type="radio" id="3" name="answers" />
-          <label class="form-style"name="answers"  for="3">Computer Personal Unit</label>
-        </div>
-        <div class="radio-button">
-          <input class="form-style"type="radio" id="4" name="answers" />
-          <label class="form-style" name="answers"  for="4">Central Processor Unit</label>
-        </div>
-      </div>
-      
-    </div>
-    <div id="proceed" class="hidden">
 
-      <button id="buttonNextToQuiz" class="next_question_button" onclick="removeClass()"><span>PROCEED</span></button>
-    </div>
-
-  </div>
-
-</main>
-  <footer>
-    <div id="box-counter">
-      <p class="counter">
-        QUESTION <span id="counter">1 </span> <span id="tenAnswers"></span>
-      </p>
-    </div>
-    
-  </footer>
+    </footer>
     <script src="index.js"></script>
 </body>
 
