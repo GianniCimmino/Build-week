@@ -1,117 +1,194 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,600;1,400;1,600;1,800&family=Outfit:wght@100;200&family=Roboto&display=swap');
-
-
-* {
-    margin: 0;
-    padding: 0;
-    font-family: 'Montserrat', serif;
-}
+@import url('https://fonts.googleapis.com/css2?family=Inter&family=Outfit:wght@400;700&display=swap');
 
 body {
+
+    width: 100%;
+    height: 100vh;
     background-image: url(assets/bg.jpg);
     background-repeat: no-repeat;
+    margin: 0%;
+    padding: 0%;
     background-size: cover;
+}
+#logo{
+    margin: 0%;
+    padding: 0%;
+}
+header{
     width: 100%;
-}
-
-.mainPageContainer {
-    margin: 50px 50px;
-    padding-top: 10px;
-    padding-left: 40px;
-}
-
-.logo-container img {
-    width: 150px;
-    cursor: pointer;
-}
-
-.title {
-    color: white;
-    width: 25%;
-    padding-top: 60px;
-    font-weight: lighter;
-}
-
-.title h1 {
-    font-weight: 400;
-    font-size: 50pt;
-}
-
-.title span {
-    font-weight: 600;
-    font-size: 60pt;
-
-}
-
-.title h3 {
-    color: #d20094;
-    font-size: 25pt;
-    padding-top: 15px;
-    padding-bottom: 10px;
-}
-
-.paragraph {
-    color: white;
-}
-
-.paragraph p {
-    font-weight: 300;
-    font-size: 12px;
-    padding-bottom: 30px;
-}
-
-
-ul {
-    font-size: 12px;
-    font-weight: 200;
-    padding-left: 20px;
-    padding-bottom: 90px;
-}
-
-ul li {
-    padding: 2px;
-}
-
-ul span {
-    font-weight: 800;
-    font-size: 9pt;
-}
-
-.container {
+    height:30vh;
     display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+img {
+
+    width: 13%;
+    margin: 14%;
+    padding: 0%;
+
+}
+
+main {
+    margin: 0%;
+    padding: 0%;
+    width: 100%;
+    height: auto;
 }
 
 
 
-#check {
+.question {
+    font-family: 'Outfit', sans-serif;
+    color: white;
+    font-size: 30px;
+    font-weight: 200;
+    text-align: center;
+}
+
+
+
+
+
+footer {
+    width: 100%;
+    color: white;
+    position: absolute;
+    bottom: 50px;
+}
+
+#box-counter {
+    display: flex;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+
+}
+
+#tenAnswers {
+    color: #d20094;
+
+}
+
+.counter p {
+    font-family: 'Outfit', sans-serif;
+
+}
+
+.flex {
+
+    display: flex;
+    width: 49%;
+    flex-direction: column;
+    align-items: center;
+    margin: auto;
+}
+
+.choices {
+    display: flex;
+    justify-content: space-around;
+    box-sizing: border-box;
+    width: 145%;
+    height: 30vh;
+
+    flex-wrap: wrap;
+}
+
+label {
+    color: white;
+}
+
+input:checked+label {
+    color: red;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
+}
+
+.radio-button {
+    width: 40%;
+    height: 10vh;
+    justify-content: center;
+
+    display: flex;
+    align-items: center;
+    opacity: 1;
+    border-radius: 5em;
+    box-shadow: 1px -5px 3px white;
+    background: rgba(102, 51, 153, 0.3);
+    font-family: 'Inter', sans-serif;
+    font-size: 1.1em;
+
+    line-height: 1.1;
+    letter-spacing: 2.5px;
+
+
+}
+
+.form-style {
     cursor: pointer;
 }
 
-.checkmark-container {
-    padding-left: 10px;
-}
-
-.checkmark-container span{
-    font-weight: 900;
-}
-
-#check {
-    border: 1px solid white;
-    background-color: #0C113B;
-    width: 20px;
-}
-
-.checkmark {
+.form-style:checked+label {
     color: white;
-    font-size: 12px;
-    padding-top: 50px;
+    background: linear-gradient(#d20094, #900080);
+
+    text-align: center;
+    width: 100%;
+    height: 10vh;
+    justify-content: center;
+
+    display: flex;
+    align-items: center;
+    opacity: 1;
+    border-radius: 5em;
+    box-shadow: 1px -5px 3px white;
+    font-family: 'Outfit', sans-serif;
+    font-size: 1.1em;
+    font-weight: 400;
+    line-height: 1.1;
+    letter-spacing: 2.5px;
+    box-shadow: inset 0em -2px 2px rgba(255, 255, 255, 0.5);
+
 }
 
+/* input[type='radio']:checked +label:before{
+    border-color: transparent;
+    background-color: transparent;
+} */
 
-
+input[type="radio"] {
+    /*Add if not using autoprefixer */
+    -webkit-appearance: none;
+    appearance: none;
+    /*For iOS < 15 to remove gradient background */
+    background-color: #fff;
+    /*Not removed via appearance */
+    margin: 0;
+}
+.hidden{
+    visibility: hidden;
+}
+#proceed {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+}
+#proceed button{
+    width: 15%;
+    margin: 5em;
+    padding: 0%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 10vh;
+}
 
 #buttonNextToQuiz {
-    margin-left: 250px;
+    margin: 0%;
     background: #00ffff;
     color: black;
     width: 130px;
@@ -121,4 +198,19 @@ ul span {
     cursor: pointer;
     -webkit-box-shadow: inset -1px 3px 8px 5px #1F87FF, 2px 5px 16px 0px #0B325E, 0px 0px 20px 8px rgba(0, 255, 255, 0.21);
     box-shadow: inset -1px 3px 8px 5px #1F87FF, 2px 5px 16px 0px #0B325E, 0px 0px 20px 8px rgba(0, 255, 255, 0.21);
+}
+
+.next_question_button {
+    display: flex;
+    bottom: 5px;
+    right: 25px;
+}
+#proceed span{
+    font-size: 20px;
+}
+
+.counter, #tenAnswers, #counter{
+    font-family: 'Outfit', sans-serif;
+letter-spacing: 3px;
+    font-size: 20px;
 }

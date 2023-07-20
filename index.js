@@ -100,6 +100,49 @@ const questions = [
 
 ]
 
+//creo funzione per togliere classe e rendere visibile bottone per andare avanti con domande
+
+const labelChecked= document.querySelector('.form-style')
+
+
+const divProceed= document.querySelector('#proceed')
+labelChecked.addEventListener("click",removeClass)
+
+
+function removeClass(event){
+let className= document.querySelector('#proceed').className
+if(className==='hidden'){
+divProceed.classList.remove('hidden')
+}else{
+  divProceed.classList.add('hidden')
+
+}
+
+}
+
+// for (const input of labelChecked) {
+//   input.addEventListener("click", function (event){
+//     let className= document.querySelector('#proceed').className
+//     if(className==='hidden'){
+//     divProceed.classList.remove('hidden')
+//     }else{
+//       divProceed.classList.add('hidden')
+    
+//     }
+    
+
+//   }
+
+//   )
+// }
+
+
+
+
+
+
+
+//------------FUNZIONE PER FAR APPARIRE E SCOMPARIRE BOTTONE NEXTQUIZ------------
 // Dichiaro la funzione che convalida il checkbox al button della pagina iniziale.
 
 function enable() {
@@ -134,11 +177,15 @@ let spanCounter= document.querySelector('#counter')
 
 function NextQuestionFunction(event) { // ad ogni click itera la prossima domanda 
     //la variabile count aumenta ad ogni click 
+  
     count ++
   console.log(count)
-
+// let spanTenAnswers= questions.length
+// let spanPurple= document.createElement('span')
+// spanPurple.id= 'tenAnswers'
+// spanPurple.innerText= questions.length
   // ad ogni click il counterQuestions conta la domanda (ho aggiunto il +1 perchè count parte da 0, altrimenti il conteggio delle domande sarebbe indietro di uno)
-  spanCounter.innerText = (count + 1) 
+  spanCounter.innerText = (count + 1) + ' / ' + questions.length
 
 
   
@@ -154,7 +201,7 @@ function NextQuestionFunction(event) { // ad ogni click itera la prossima domand
     questionDiv.appendChild(question)
 
     // se count è diverso da 10 allora crea la domanda e le diverse opzioni
-    if (count !== 10) {
+    if (count!==10) {
       
     
     //uso la variabile count per iterare ogni volta la domanda successiva
