@@ -86,13 +86,14 @@ input[type="checkbox"] {
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
-
+    /* style checkbox */
     width: 15px;
     height: 15px;
     background-color: #0C113B;
     border: 1px solid white;
   }
   input[type="checkbox"]:checked {
+    background-color: #0C113B;
     background-color: white;
   }
   
@@ -131,5 +132,6 @@ input[type="checkbox"] {
     -webkit-box-shadow: 1px 1px 18px 8px rgba(0, 255, 255, 0.67);
     box-shadow: 1px 1px 18px 8px rgba(0, 255, 255, 0.67);
     border: 1px solid transparent;
+    
 }
 
