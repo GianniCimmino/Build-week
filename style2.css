@@ -170,7 +170,7 @@ input[type="radio"] {
     margin: 0;
 }
 #hidden{
-    visibility: visible;
+    visibility: hidden;
 }
 #proceed {
     width: 100%;
@@ -188,7 +188,7 @@ input[type="radio"] {
 }
 
 #buttonNextToQuiz {
-    margin: 0%;
+    margin: 26%;
     background: #00ffff;
     color: black;
     width: 130px;
@@ -199,7 +199,10 @@ input[type="radio"] {
     -webkit-box-shadow: inset -1px 3px 8px 5px #1F87FF, 2px 5px 16px 0px #0B325E, 0px 0px 20px 8px rgba(0, 255, 255, 0.21);
     box-shadow: inset -1px 3px 8px 5px #1F87FF, 2px 5px 16px 0px #0B325E, 0px 0px 20px 8px rgba(0, 255, 255, 0.21);
 }
-
+.buttonNext{
+    display: flex;
+    width: 100%;
+}
 .next_question_button {
     display: flex;
     bottom: 5px;
