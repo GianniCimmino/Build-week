@@ -101,27 +101,6 @@ const questions = [
 ]
 
 
-//funzione per contare risposte corrette
-
-// function showResults(){
-//  let answersContainer= document.querySelectorAll('.radio-button')
-
-//  let countNum=0
-//  let userAnswers=''
-
-// for (let i = 0; i < questions.length; i++) {
-//   // const question = questions[i];
-//   userAnswers = (answersContainer[i].querySelector('input[id='+i+']:checked')).value
-
-//   if(userAnswers===questions[i].correct_answer){
-//     countNum++
-  
-// }
-// let output= document.querySelector('#box-counter')
-// output.innerHTML = numCorrect + 'risposte corrette su ' + questions.length;
-
-// }
-// }
 
 
 
@@ -132,41 +111,6 @@ const questions = [
 
 
 
-//creo funzione per togliere classe e rendere visibile bottone per andare avanti con domande
-
-// const labelChecked= document.querySelector('.form-style')
-
-
-// const divProceed= document.querySelector('#proceed')
-// labelChecked.addEventListener("click",removeClass)
-
-
-// function removeClass(event){
-// let className= document.querySelector('#proceed').className
-// if(className==='hidden'){
-// divProceed.classList.remove('hidden')
-// }else{
-//   divProceed.classList.add('hidden')
-
-// }
-
-// }
-
-// for (const input of labelChecked) {
-//   input.addEventListener("click", function (event){
-//     let className= document.querySelector('#proceed').className
-//     if(className==='hidden'){
-//     divProceed.classList.remove('hidden')
-//     }else{
-//       divProceed.classList.add('hidden')
-    
-//     }
-    
-
-//   }
-
-//   )
-// }
 
 
 
@@ -177,10 +121,10 @@ const questions = [
 
 
 // Dichiaro la funzione che convalida il checkbox al button della pagina iniziale.
-let demoArray = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9 ];
+let demoArray = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
 
-function shuffleArray(inputArray){
-   inputArray.sort(()=> Math.random() - 0.5);
+function shuffleArray(inputArray) {
+  inputArray.sort(() => Math.random() - 0.5);
 }
 
 shuffleArray(demoArray);
@@ -196,179 +140,245 @@ function enable() {
   }
 }
 
+let buttonNextToQuiz = document.querySelector("#buttonNextQuiz")
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
 
 // creo una variabile per prendere il div dove poi andrà il paragrafo della domanda
-  let questionDiv = document.querySelector(".question")
-  let choicesDiv = document.querySelector(".choices")
+let questionDiv = document.querySelector(".question")
+let choicesDiv = document.querySelector(".choices")
 
 
 // creo l'event listener per il bottone che serve per proseguire alla prossima domanda:
-  let nextQuestionButton = document.querySelector(".next_question_button")
-  nextQuestionButton.addEventListener("click", NextQuestionFunction)
+let nextQuestionButton = document.querySelector(".next_question_button")
+nextQuestionButton.addEventListener("click", NextQuestionFunction)
 
 // creo una variabile count 
-  let count = 0
-  
-  //creo il paragrafo con dentro la domanda 
+let count = 0
+
+//creo il paragrafo con dentro la domanda 
+let question = document.createElement("p")
+questionDiv.appendChild(question)
+
+
+//creo un count2, che mi servirò per iterare domande casuali
+let count2 = demoArray[count]
+console.log(count2)
+
+
+question.innerText = questions[count2].question
+
+
+// estrapolo dall'html il <p> "question1/10"
+// let counterQuestions = document.querySelector(".counter")
+let spanCounter = document.querySelector('#counter')
+
+
+
+// creo un array unico con correct_answer e incorrect_answers per poter fare un ciclo for  e creare i radio
+
+let arrIncorrect = questions[count2].incorrect_answers
+let strCorrect = questions[count2].correct_answer
+arrIncorrect.push(strCorrect)
+
+
+// creo il ciclo for per i radio
+for (let i = 0; i < arrIncorrect.length; i++) {
+
+  //creo il div del radio
+  let inputDiv = document.createElement('div')
+  inputDiv.classList.add('radio-button')
+  choicesDiv.appendChild(inputDiv)
+  // creo il radio e lo "appendo" al label 
+  let radio = document.createElement("input")
+  radio.classList.add('form-style')
+  radio.setAttribute("type", "radio")
+  radio.setAttribute("name", "answers")
+  inputDiv.appendChild(radio)
+  // creo un array di radio per poter usare un ciclo for e far cambiare l'id
+  let arrRadio = document.querySelectorAll("input[type='radio']")
+  for (let i = 0; i < arrRadio.length; i++) {
+    arrRadio[i].setAttribute("id", [i])
+  }
+
+
+  // creo un label e lo appendo al Div
+  let label = document.createElement("label")
+  label.classList.add('form-style')
+  inputDiv.appendChild(label)
+
+  // creo un array di label per poter usare un ciclo for e far cambiare il for
+  let arrLabel = document.querySelectorAll("label")
+  for (let i = 0; i < arrLabel.length; i++) {
+    arrLabel[i].setAttribute("for", [i])
+  }
+
+  label.innerHTML = arrIncorrect[i]
+}
+
+
+let span = document.querySelector("#tenAnswers")
+spanCounter.innerText = (count + 1) + " / "
+span.innerText = questions.length
+
+
+
+
+
+
+
+
+function NextQuestionFunction(event) { // ad ogni click itera la prossima domanda 
+  //la variabile count aumenta ad ogni click 
+  divHidden.setAttribute('id', 'hidden')
+
+  count++
+  count2 = demoArray[count]
+  console.log(questions[count2])
+
+
+  console.log(count2)
+  // ad ogni click il counterQuestions conta la domanda (ho aggiunto il +1 perchè count parte da 0, altrimenti il conteggio delle domande sarebbe indietro di uno)
+  spanCounter.innerText = (count + 1) + " / "
+  span.innerText = questions.length
+
+
+
+  // ad ogni click pulisco il paragrafo della domanda e i radio
+  questionDiv.innerHTML = ""
+  choicesDiv.innerHTML = ""
+
+
+  // ad ogni click creo il paragrafo con dentro la domanda 
   let question = document.createElement("p")
   questionDiv.appendChild(question)
 
 
- //creo un count2, che mi servirò per iterare domande casuali
-  let count2 = demoArray[count] 
-  console.log(count2)
+  // se count è diverso da 10 allora crea la domanda e le diverse opzioni
+  if (count !== 10) {
 
-  
-  question.innerText = questions[count2].question
-  
-  
-  // estrapolo dall'html il <p> "question1/10"
-  // let counterQuestions = document.querySelector(".counter")
-  let spanCounter= document.querySelector('#counter')
+    //se l'utente è all'ultima domanda cambia testo button 
+    if (count === 9) {
+      nextQuestionButton.innerText = "SEND TEST"
+    }
 
+    //uso la variabile count per iterare ogni volta la domanda successiva
+    question.innerText = questions[count2].question
 
+    // creo un array unico con correct_answer e incorrect_answers per poter fare un ciclo for  e creare i radio
 
-   // creo un array unico con correct_answer e incorrect_answers per poter fare un ciclo for  e creare i radio
-
-   let arrIncorrect = questions[count2].incorrect_answers
-   let strCorrect = questions[count2].correct_answer
-   arrIncorrect.push(strCorrect) 
-
- 
-   // creo il ciclo for per i radio
-   for (let i = 0; i < arrIncorrect.length; i++) {
-
-   //creo il div del radio
-   let inputDiv= document.createElement('div')
-   inputDiv.classList.add('radio-button')
-   choicesDiv.appendChild(inputDiv)
-   // creo il radio e lo "appendo" al label 
-   let radio = document.createElement("input")
-       radio.classList.add('form-style')
-       radio.setAttribute("type", "radio")
-       radio.setAttribute("name", "answers")
-       inputDiv.appendChild(radio)
-   // creo un array di radio per poter usare un ciclo for e far cambiare l'id
-     let arrRadio = document.querySelectorAll("input[type='radio']")
-     for (let i = 0; i < arrRadio.length; i++) {
-       arrRadio[i].setAttribute("id", [i])
-     }
-     
-
-     // creo un label e lo appendo al Div
-     let label = document.createElement("label")
-       label.classList.add('form-style')
-       inputDiv.appendChild(label)
-
-     // creo un array di label per poter usare un ciclo for e far cambiare il for
-       let arrLabel = document.querySelectorAll("label")
-       for (let i = 0; i < arrLabel.length; i++) {
-         arrLabel[i].setAttribute("for", [i])
-       }
-       
-     label.innerHTML = arrIncorrect[i]
-     }
-
-    
-     let span = document.querySelector("#tenAnswers")
-     spanCounter.innerText = (count + 1) + " / "
-     span.innerText = questions.length
- 
-  function NextQuestionFunction(event) { // ad ogni click itera la prossima domanda 
-      //la variabile count aumenta ad ogni click 
-      count ++
-      count2 = demoArray[count] 
-      console.log(questions[count2])
-      
-      
-      console.log(count2)
-    // ad ogni click il counterQuestions conta la domanda (ho aggiunto il +1 perchè count parte da 0, altrimenti il conteggio delle domande sarebbe indietro di uno)
-    spanCounter.innerText = (count + 1) + " / "
-    span.innerText = questions.length
+    arrIncorrect = questions[count2].incorrect_answers
+    strCorrect = questions[count2].correct_answer
+    arrIncorrect.push(strCorrect)
 
 
-    
-    // ad ogni click pulisco il paragrafo della domanda e i radio
-      questionDiv.innerHTML = ""
-      choicesDiv.innerHTML= ""
+    // creo il ciclo for per i radio
+    // creo il ciclo for per i radio
+    for (let i = 0; i < arrIncorrect.length; i++) {
 
-
-      // ad ogni click creo il paragrafo con dentro la domanda 
-      let question = document.createElement("p")
-    questionDiv.appendChild(question)
-    
-     
-      // se count è diverso da 10 allora crea la domanda e le diverse opzioni
-      if (count !== 10) {
-
-        //se l'utente è all'ultima domanda cambia testo button 
-        if (count === 9){
-          nextQuestionButton.innerText = "SEND TEST"
-        }
-      
-        //uso la variabile count per iterare ogni volta la domanda successiva
-        question.innerText = questions[count2].question
-
-        // creo un array unico con correct_answer e incorrect_answers per poter fare un ciclo for  e creare i radio
-
-        arrIncorrect = questions[count2].incorrect_answers
-        strCorrect = questions[count2].correct_answer
-        arrIncorrect.push(strCorrect) 
-
-      
-        // creo il ciclo for per i radio
-         // creo il ciclo for per i radio
-   for (let i = 0; i < arrIncorrect.length; i++) {
-
-    //creo il div del radio
-    let inputDiv= document.createElement('div')
-    inputDiv.classList.add('radio-button')
-    choicesDiv.appendChild(inputDiv)
-    // creo il radio e lo "appendo" al label 
-    let radio = document.createElement("input")
-        radio.classList.add('form-style')
-        radio.setAttribute("type", "radio")
-        radio.setAttribute("name", "answers")
-        inputDiv.appendChild(radio)
-    // creo un array di radio per poter usare un ciclo for e far cambiare l'id
+      //creo il div del radio
+      let inputDiv = document.createElement('div')
+      inputDiv.classList.add('radio-button')
+      choicesDiv.appendChild(inputDiv)
+      // creo il radio e lo "appendo" al label 
+      let radio = document.createElement("input")
+      radio.classList.add('form-style')
+      radio.setAttribute("type", "radio")
+      radio.setAttribute("name", "answers")
+      inputDiv.appendChild(radio)
+      // creo un array di radio per poter usare un ciclo for e far cambiare l'id
       let arrRadio = document.querySelectorAll("input[type='radio']")
       for (let i = 0; i < arrRadio.length; i++) {
         arrRadio[i].setAttribute("id", [i])
       }
-      
- 
+
+
       // creo un label e lo appendo al Div
       let label = document.createElement("label")
-        label.classList.add('form-style')
-        inputDiv.appendChild(label)
- 
+      label.classList.add('form-style')
+      inputDiv.appendChild(label)
+
       // creo un array di label per poter usare un ciclo for e far cambiare il for
-        let arrLabel = document.querySelectorAll("label")
-        for (let i = 0; i < arrLabel.length; i++) {
-          arrLabel[i].setAttribute("for", [i])
-        }
-        
-      label.innerHTML = arrIncorrect[i]
+      let arrLabel = document.querySelectorAll("label")
+      for (let i = 0; i < arrLabel.length; i++) {
+        arrLabel[i].setAttribute("for", [i])
       }
 
-        
+      label.innerHTML = arrIncorrect[i]
+    }
 
-            
-        
-          
+    const output = document.querySelector('#output');
+    const divHidden = document.querySelector('#hidden')
+    
+    let arrRadio = document.querySelectorAll("input[type='radio']")
+    let selectedSize;
+    for (const radioButton of arrRadio) {
+      radioButton.addEventListener("click", function (event) {
+        if (radioButton.checked) {
+          selectedSize = radioButton.value;
+          divHidden.removeAttribute('id')
+        }else{
+          divHidden.setAttribute('id', 'hidden')
+    
+        }
+      
+      // show the output:
+      // output.innerText = selectedSize ? `You selected ${selectedSize}` : `You haven't selected any size`;
+    })
+    }
 
-      } else { // se count === 10 allora mostra altra pagina
 
-       // cancellA TUTTO E MOSTRA IL PARAGRAFO 
-      let buttonNext = document.querySelector(".buttonNext")
-      buttonNext.innerHTML = ""
-        question.innerHTML = ""
-        //InputDiv.innerHTML= ""
-        let footer = document.querySelector("footer")
-        footer.innerHTML = ""
-        question.innerText = "Ottimo hai passato l'esame!"
+
+
+
+  } else { // se count === 10 allora mostra altra pagina
+
+    // cancellA TUTTO E MOSTRA IL PARAGRAFO 
+    let buttonNext = document.querySelector(".buttonNext")
+    buttonNext.innerHTML = ""
+    question.innerHTML = ""
+    //InputDiv.innerHTML= ""
+    let footer = document.querySelector("footer")
+    footer.innerHTML = ""
+    question.innerText = "Ottimo hai passato l'esame! "
   }
 }
+
+
+
+
+
+
+
+const output = document.querySelector('#output');
+const divHidden = document.querySelector('#hidden')
+
+let arrRadio = document.querySelectorAll("input[type='radio']")
+let selectedSize;
+for (const radioButton of arrRadio) {
+  radioButton.addEventListener("click", function (event) {
+    if (radioButton.checked) {
+      selectedSize = radioButton.value;
+      divHidden.removeAttribute('id')
+    }else{
+      divHidden.setAttribute('id', 'hidden')
+
+    }
+  
+})
+}
+        
