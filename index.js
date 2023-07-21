@@ -99,23 +99,7 @@ const questions = [
 
 ]
 
-// let timer = 0;
 
-// Funzione per aggiornare il display del timer
-// function updateTimerDisplay() {
-//   document.getElementById('timerDisplay').textContent = timer + ' secondi';
-// }
-
-// Funzione per azzerare il timer
-// function resetTimer() {
-//   timer = 0;
-//   updateTimerDisplay();
-//   Salva il valore del timer nello storage per condividerlo con la scheda B
-//   localStorage.setItem('timerValue', timer);
-// }
-
-// Aggiunge l'evento di click al bottone di azzeramento
-// document.getElementById('btnResetTimer').addEventListener('click', resetTimer);
 let seconds = 60
 concluded = false
 // creo una funzione timer che utilizza la variabile seconds globale
