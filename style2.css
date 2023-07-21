@@ -15,11 +15,13 @@ body {
     background-size: cover;
 }
 
-header, img {
+header{
+    width: 100%;
+}
 
+header img{
     width: 150px;
-    margin-left: 45px;
-    margin-top: 30px;
+    margin: 50px;
 }
 
 
@@ -63,7 +65,7 @@ footer {
 .flex {
 
     display: flex;
-    width: 49%;
+    width: 50%;
     flex-direction: column;
     align-items: center;
     margin: auto;
@@ -161,6 +163,43 @@ input:checked +label {
     font-family: 'Montserrat', serif;
 }
 
+
+
 #hidden{
     visibility: hidden;
 }
+
+.container-timer{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.box-timer {
+    margin-right: 50px;
+}
+
+
+
+  .timer {
+    display: flex;
+    font-size: 60px;
+    width: 56px;
+     margin: 50px 0 0 90%;
+    justify-content: flex-end;
+  }
+   .circle { 
+    width: 100px;
+    height: 100px;
+    border: 2vh solid transparent;
+    border-radius: 50%;
+    background: linear-gradient(white, white) content-box no-repeat,
+      conic-gradient(#00ffff 44%, 0, #900080) border-box;
+  } 
+
+  .circle span{
+    position: fixed;
+    padding-top: 25px;
+    padding-left: 20px;
+  } 

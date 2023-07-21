@@ -99,12 +99,64 @@ const questions = [
 
 ]
 
-  
+// let timer = 0;
+
+// Funzione per aggiornare il display del timer
+// function updateTimerDisplay() {
+//   document.getElementById('timerDisplay').textContent = timer + ' secondi';
+// }
+
+// Funzione per azzerare il timer
+// function resetTimer() {
+//   timer = 0;
+//   updateTimerDisplay();
+//   Salva il valore del timer nello storage per condividerlo con la scheda B
+//   localStorage.setItem('timerValue', timer);
+// }
+
+// Aggiunge l'evento di click al bottone di azzeramento
+// document.getElementById('btnResetTimer').addEventListener('click', resetTimer);
+let seconds = 60
+concluded = false
+// creo una funzione timer che utilizza la variabile seconds globale
+function countdown() {
+  //  dichiaro la variabile counter per il conteggio dei secondi
+    let counter = document.getElementById("counter-timer");
+    seconds--;
+    counter.innerHTML =
+      "0:" + (seconds < 10 ? "0" : "") + String(seconds);
+    // decresco i secondi.
+    if (seconds > 0 && !concluded) {
+      setTimeout(countdown, 1000);
+    }
+    //  Tempo scaduto, passo alla prossima domanda.
+    else if (!concluded){
+      
+      let nextQuestionButton = document.querySelector(".next_question_button");
+      nextQuestionButton.click();
+      countdown();
+      
+    }
+    // Quiz finito.
+    else {
+      let boxTimer = document.querySelector(".box-timer");
+      boxTimer.style.display = "none"
+    }
+}
+
+countdown(); 
+// creo una funzione per resettare il timer.
+function resetTimer(){
+  seconds=60
+}
 
 // creo l'event listener per il bottone che serve per proseguire alla prossima domanda:
 let nextQuestionButton = document.querySelector(".next_question_button")
 nextQuestionButton.addEventListener("click", NextQuestionFunction)
 
+// Creo l'event listener per il reset del timer ogni volta che si passa alla prossima domanda.
+let timerReset = document.querySelector(".next_question_button")
+nextQuestionButton.addEventListener("click", resetTimer)
 
 // Dichiaro la funzione che convalida il checkbox al button della pagina iniziale.
 function enable() {
@@ -354,7 +406,8 @@ for (const radioButton of arrRadio) {
           
 
       } else { // se count === 10 allora mostra altra pagina
-
+        // setto un concluded = true per nascondere il timer.
+        concluded = true
        // cancellA TUTTO E MOSTRA IL PARAGRAFO 
       let buttonNext = document.querySelector(".buttonNext")
       buttonNext.innerHTML = ""
@@ -379,7 +432,5 @@ for (const radioButton of arrRadio) {
         console.log(RightAnswerCounter)
   }
 
-  
-
-
 }
+
