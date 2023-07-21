@@ -170,7 +170,9 @@ function enable() {
 }
 
 // dichiaro la variabile che mi conta ogni volta che clicco la risposta giusta
-let RightAnswerCounter = 0
+let RightAnswer
+let Answer 
+let AnswerCounter = 0
 
 
 
@@ -250,11 +252,14 @@ shuffleArray(IndiceArray);
        for (let i = 0; i < arrLabel.length; i++) {
          arrLabel[i].setAttribute("for", [i])
          arrLabel[i].addEventListener("click", function CheckRightAnswer(event){
-          let Answer = event.target.innerText
+          Answer = event.target.innerText
           if (Answer === strCorrect){
-             RightAnswerCounter++
-             arrLabel[i].removeEventListener("click", CheckRightAnswer)
-             console.log(RightAnswerCounter)
+             RightAnswer = true
+             
+             console.log(RightAnswer)
+           } else {
+            RightAnswer = false
+            console.log(RightAnswer)
            }
            })
         
@@ -298,7 +303,11 @@ for (const radioButton of arrRadio) {
   function NextQuestionFunction(event) { // ad ogni click itera la prossima domanda 
       //la variabile count aumenta ad ogni click 
 
-      
+      if (RightAnswer){
+        AnswerCounter++
+        console.log(AnswerCounter)
+      }
+
       divHidden.setAttribute('id', 'hidden')
 
       count ++
@@ -372,12 +381,15 @@ for (const radioButton of arrRadio) {
         for (let i = 0; i < arrLabel.length; i++) {
           arrLabel[i].setAttribute("for", [i])
           arrLabel[i].addEventListener("click", function CheckRightAnswer(event){
-            let Answer = event.target.innerText
-            if (Answer === strCorrect){
-               RightAnswerCounter++
-               arrLabel[i].removeEventListener("click", CheckRightAnswer)
-               console.log(RightAnswerCounter)
-             }
+            Answer = event.target.innerText
+          if (Answer === strCorrect){
+             RightAnswer = true
+             
+             console.log(RightAnswer)
+           } else {
+            RightAnswer = false
+            console.log(RightAnswer)
+           }
              })
           
            
@@ -415,21 +427,21 @@ for (const radioButton of arrRadio) {
         //InputDiv.innerHTML= ""
         let footer = document.querySelector("footer")
         footer.innerHTML = ""
-        if (RightAnswerCounter >= 6 ) {
+        if (AnswerCounter >= 6 ) {
           question.innerText = "Grande!! L'hai passato!"
           let TagP =  document.createElement("p")
           question.appendChild(TagP)
-          TagP.innerText = "Hai risposto correttamente a " + RightAnswerCounter + " domande su 10 :)"
+          TagP.innerText = "Hai risposto correttamente a " + AnswerCounter + " domande su 10 :)"
           
         } else {
           question.innerText = "Oops, non l'hai passato!"
           let TagP =  document.createElement("p")
           question.appendChild(TagP)
-          TagP.innerText = "Hai risposto correttamente a " + RightAnswerCounter + " domande su 10 :/"
+          TagP.innerText = "Hai risposto correttamente a " + AnswerCounter + " domande su 10 :/"
         }
         
 
-        console.log(RightAnswerCounter)
+       
   }
 }
 
