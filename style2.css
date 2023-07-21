@@ -8,7 +8,7 @@
 body {
     
     width: 100%;
-    height: 100vh;
+   
     background-image: url(assets/bg.jpg);
     background-repeat: no-repeat;
     margin: 0;
@@ -17,11 +17,12 @@ body {
 
 header, img {
 
-    width: 12vw;
-    margin-left: 60px;
-    margin-top: 50px;
-
+    width: 150px;
+    margin-left: 45px;
+    margin-top: 30px;
 }
+
+
  
 
 .question {
@@ -34,11 +35,7 @@ header, img {
 
 
 
-.next_question_button {
-    position: absolute;
-    bottom: 5px;
-    right: 25px;
-}
+
 
 footer {
     width: 100%;
@@ -103,7 +100,7 @@ input:checked +label {
     border-radius: 5em;
     box-shadow: 1px -5px 3px white;
     background: rgba(102,51,153,0.3);
-    font-family: 'Outfit', sans-serif;
+    font-family: 'Inter', sans-serif;
     font-size: 1.1em;
     line-height: 1.1;
     letter-spacing: 2.5px;
@@ -112,26 +109,22 @@ input:checked +label {
 }
 .form-style{
     cursor: pointer;
-    font-family: 'Inter', sans-serif;
+    
 }
 
 .form-style:checked +label {
     color: white;
     background: linear-gradient(#d20094, #900080);
-    
     text-align: center;
     width: 100%;
     height: 10vh;
     justify-content: center;
-
     display: flex;
     align-items: center;
     opacity: 1;
     border-radius: 5em;
     box-shadow: 1px -5px 3px white;
-    font-family: 'Outfit', sans-serif;
     font-size: 1.1em;
-    
     line-height: 1.1;
     letter-spacing: 2.5px;
     box-shadow: inset 0em -2px 2px white;
@@ -154,7 +147,7 @@ input:checked +label {
   } 
 
   #buttonNextToQuiz {
-    margin-left: 250px;
+   
     background: #00ffff;
     color: black;
     width: 130px;
@@ -166,4 +159,8 @@ input:checked +label {
     box-shadow: 1px 1px 18px 8px rgba(0, 255, 255, 0.67);
     border: 1px solid transparent;
     font-family: 'Montserrat', serif;
+}
+
+#hidden{
+    visibility: hidden;
 }
