@@ -321,23 +321,25 @@ function NextQuestionFunction(event) { // ad ogni click itera la prossima domand
       label.innerHTML = arrIncorrect[i]
     }
 
-    const output = document.querySelector('#output');
+
+
+
+
+
+
     const divHidden = document.querySelector('#hidden')
     
     let arrRadio = document.querySelectorAll("input[type='radio']")
-    let selectedSize;
     for (const radioButton of arrRadio) {
       radioButton.addEventListener("click", function (event) {
         if (radioButton.checked) {
-          selectedSize = radioButton.value;
           divHidden.removeAttribute('id')
         }else{
           divHidden.setAttribute('id', 'hidden')
     
         }
       
-      // show the output:
-      // output.innerText = selectedSize ? `You selected ${selectedSize}` : `You haven't selected any size`;
+      
     })
     }
 
@@ -364,15 +366,12 @@ function NextQuestionFunction(event) { // ad ogni click itera la prossima domand
 
 
 
-const output = document.querySelector('#output');
 const divHidden = document.querySelector('#hidden')
 
 let arrRadio = document.querySelectorAll("input[type='radio']")
-let selectedSize;
 for (const radioButton of arrRadio) {
   radioButton.addEventListener("click", function (event) {
     if (radioButton.checked) {
-      selectedSize = radioButton.value;
       divHidden.removeAttribute('id')
     }else{
       divHidden.setAttribute('id', 'hidden')
